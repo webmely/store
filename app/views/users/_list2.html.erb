@@ -1,0 +1,60 @@
+<div class="experts-list">
+	<div class="experts-items">
+	<% @users.each do |u|%>
+		<div id='<%= u.id%>' class="expert-item">
+			<div class="expert-header">
+				<div class="expert-header-content">
+					<div class="badge-spacer"></div>
+					<a href="<%= user_path(u)%>">
+						<%= image_tag u.avatar_url(:avatar), :class=>"photo"%>
+					</a>
+					<a class="name" href="<%= user_path(u)%>"><%= u.fullname%></a>
+					<a target="_blank" class="company" href="mailto:<%= u.email%>">
+						<span><%= u.email%></span>
+					</a>
+					<span class="city"><%= u.address%></span>
+					<span class="certified"><%= u.phone%></span>
+				</div>
+				<div class="expert-more-info-btn">
+					<%= link_to edit_user_path(u), :class => "btn btn-info btn-xs" do%>
+						<span class="glyphicon glyphicon-pencil"></span> Edit
+					<%end%>
+					<%= link_to user_path(u), :class => "btn btn-danger btn-xs",:method => "DELETE" do%>
+						<span class="glyphicon glyphicon-remove"></span> Remove
+					<%end%>
+				</div>
+			</div>
+		</div>
+	<%end%>
+
+<!--
+		<div class="pagination">
+			<span class="prev">Previous</span>
+			<a class="next" href="/en/experts?page=2">Next</a>
+			<div class="pagewrapper">
+				<div class="page active">
+					<a class="page active" href="#">1</a>
+				</div>
+				<div class="page inactive">
+					<a class="page inactive" href="#page=2">2</a>
+				</div>
+				<div class="page inactive">
+					<a class="page inactive" href="#page=3">3</a>
+				</div>
+				<div class="page inactive">
+					<a class="page inactive" href="#page=4">4</a>
+				</div>
+				<div class="page inactive">
+					<a class="page inactive"" href="#page=5">5</a>
+				</div>
+				<div class="page inactive">
+					<span>...</span>
+				</div>
+				<div class="page inactive">
+					<a class="page inactive" href="#page=15">15</a>
+				</div>
+			</div>
+		</div>
+-->
+	</div>
+</div>

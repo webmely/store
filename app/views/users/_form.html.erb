@@ -1,0 +1,65 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    Profile
+  </div>
+  <div class="panel-body"> 
+    <div class="row">
+      <%= form_for(@user, :html => { :class => "form-horizontal" }) do |f| %>
+
+      <!-- left column -->
+      <div class="col-md-4 col-sm-6 col-xs-12">
+        <div class="text-center">
+
+          <%= image_tag @user.avatar_url(:avatar), :class => "avatar img-circle img-thumbnail"%>
+          <h6>Upload a different photo...</h6>
+          <%= f.file_field :avatar, class: "text-center center-block well well-sm" %>
+        </div>
+      </div>
+      <!-- edit form column -->
+      <div class="col-md-8 col-sm-6 col-xs-12 personal-info">
+      <!--
+      <div class="alert alert-info alert-dismissable">
+      <a class="panel-close close" data-dismiss="alert">×</a> 
+      <i class="fa fa-coffee"></i>
+      This is an <strong>.alert</strong>. Use this to show important messages to the user.
+      </div>
+      -->
+        <h3>Personal info</h3>
+
+        <div class="form-group">
+          <label class="col-lg-3 control-label">Full name:</label>
+          <div class="col-lg-8">
+            <%= f.text_field :fullname, class: "form-control", placeholder: "Full name" %>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-lg-3 control-label">Email:</label>
+          <div class="col-lg-8">
+            <%= f.text_field :email, class: "form-control", placeholder: "Email", disabled: true %>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-md-3 control-label">Address:</label>
+          <div class="col-md-8">
+            <%= f.text_field :address, class: "form-control", placeholder: "Address" %>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-md-3 control-label">Phone:</label>
+          <div class="col-md-8">
+            <%= f.text_field :phone, class: "form-control", placeholder: "Phone" %>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-md-3 control-label"></label>
+          <div class="col-md-8">
+            <%= f.submit "Save Changes", class: "btn btn-primary"%>
+            <span></span>
+            <input class="btn btn-default" value="Cancel" type="reset">
+          </div>
+        </div>
+      </div>
+      <%end%>
+    </div>
+  </div>
+</div>

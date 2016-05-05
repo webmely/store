@@ -1,0 +1,52 @@
+<!-- Top Bar -->
+<div id="topBar">
+	<div class="container">
+
+		<!-- right -->
+		<ul class="top-links list-inline pull-right">
+		<% if current_user.present? %>
+			<li class="text-welcome hidden-xs">Hello, <strong><%= current_user.fullname%></strong></li>
+			<li>
+				<a class="dropdown-toggle no-text-underline" data-toggle="dropdown" href="#"><i class="fa fa-user hidden-xs"></i> MY ACCOUNT</a>
+				<ul class="dropdown-menu pull-right">
+					<li><a tabindex="-1" href="#"><i class="fa fa-history"></i> ORDER HISTORY</a></li>
+					<li class="divider"></li>
+					<li><a tabindex="-1" href="#"><i class="fa fa-bookmark"></i> MY WISHLIST</a></li>
+					<li><a tabindex="-1" href="#"><i class="fa fa-edit"></i> MY REVIEWS</a></li>
+					<li><a tabindex="-1" href="#"><i class="fa fa-cog"></i> MY SETTINGS</a></li>
+					<li class="divider"></li>
+					<li>
+						<%= link_to destroy_user_session_path, :method => "delete", "data-confirm" => "Are you sure?", "tabindex" => "-1"  do%>
+							<i class="glyphicon glyphicon-off"></i> LOGOUT
+						<% end%>
+					</li>
+				</ul>
+			</li>
+		<% else %>
+
+			<li class="hidden-xs">
+				<%= link_to "LOGIN", new_user_session_path %>
+			</li>
+			<li class="hidden-xs">
+				<%= link_to "REGISTER", new_user_registration_path %>
+			</li>
+		<% end %>
+		</ul>
+
+		<!-- left -->
+		<ul class="top-links list-inline">
+			<li class="hidden-xs"><a href="page-faq-1.html">FAQ</a></li>
+			<li>
+				<a class="dropdown-toggle no-text-underline" data-toggle="dropdown" href="#">USD</a>
+				<ul class="dropdown-langs dropdown-menu">
+					<li><a tabindex="-1" href="#">USD</a></li>
+					<li class="divider"></li>
+					<li><a tabindex="-1" href="#">EUR</a></li>
+					<li><a tabindex="-1" href="#">GBP</a></li>
+				</ul>
+			</li>
+		</ul>
+
+	</div>
+</div>
+<!-- /Top Bar -->

@@ -1,0 +1,39 @@
+<%- if controller_name != 'sessions' %>
+	<div class="login-form-links link1 " data-animation="fadeInRightBig" data-animation-delay=".2s">
+		<h4 class="green">Have an Account?</h4>
+		<%= link_to "Click Here", new_session_path(resource_name), class: "green", :target => "_parent" %>
+		<span>to Sign in</span>
+	</div>
+<% end -%>
+
+<%- if devise_mapping.registerable? && controller_name != 'registrations' %>
+	<div class="login-form-links link1 " data-animation="fadeInLeftBig" data-animation-delay=".2s">
+		<h4 class="blue">Don't have an Account?</h4>
+		<span>No worry</span>
+		<%= link_to "Click Here", new_registration_path(resource_name), class: "blue", :target => "_parent" %>
+		<span>to Sign up</span>
+	</div>
+<% end -%>
+
+<%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+	<div class="login-form-links link2 " data-animation="fadeInRightBig" data-animation-delay=".4s">
+		<h4 class="green">Forget your Password?</h4>
+		<span>Dont worry</span>
+		<%= link_to "Click Here", new_password_path(resource_name), class: "green", :target => "_parent" %>
+		<span>to Get New One</span>
+	</div>
+<% end -%>
+
+<%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
+<%= link_to "Didn't receive confirmation instructions?", new_confirmation_path(resource_name) %><br />
+<% end -%>
+
+<%- if devise_mapping.lockable? && resource_class.unlock_strategy_enabled?(:email) && controller_name != 'unlocks' %>
+<%= link_to "Didn't receive unlock instructions?", new_unlock_path(resource_name) %><br />
+<% end -%>
+
+<%- if devise_mapping.omniauthable? %>
+<%- resource_class.omniauth_providers.each do |provider| %>
+<%= link_to "Sign in with #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider) %><br />
+<% end -%>
+<% end -%>
