@@ -1,0 +1,42 @@
+<div class="list-products table-responsive">
+	<table class="table table-bordered table-vertical-middle nomargin">
+		<thead>
+			<tr>
+				<th>Products</th>
+				<th>Price</th>
+				<th>Ratings</th>
+				<th>Action</th>
+			</tr>
+		</thead>
+		<tbody>
+			<% @products.each do |p|%>
+			<tr>
+				<td>
+					<%= image_tag p.thumbnail.thumb_xs.url, :class => "product-thumb img-responsive"%>
+					<strong><%= p.name%></strong>
+					<p><%= p.short_description%></p>
+				</td>
+				<td>
+					<% unless p.price_current.present? %>
+						<%= number_to_currency(p.price)%>
+					<% else%>
+						<span class="line-through">
+							<%= number_to_currency(p.price)%>
+						</span>
+						<%= number_to_currency(p.price_current)%>
+					<% end%>
+				</td>
+				<td><div class="rating rating-0 size-13 width-100"></div></td>
+				<td>
+					<%= link_to edit_admin_product_path(p), class: "btn btn-default btn-xs", target: "_parent"  do%>
+						<i class="fa fa-edit white"></i> Edit
+					<% end %>
+					<%= link_to admin_product_path(p), method: "DELETE", class: "btn btn-default btn-xs", target: "_parent"  do%>
+						<i class="fa fa-times white"></i> Delete
+					<% end %>
+				</td>
+			</tr>
+			<%end%>
+		</tbody>
+	</table>
+</div>

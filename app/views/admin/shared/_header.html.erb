@@ -1,0 +1,125 @@
+<aside id="aside">
+	<nav id="sideNav"><!-- MAIN MENU -->
+		<ul class="nav nav-list">
+			<li class="<%= add_class_cps([admin_root_path], 'active')%>">
+				<%= link_to admin_root_path, class: "dashboard", target: "_parent" do %>
+					<i class="main-icon fa fa-dashboard"></i> <span>Dashboard</span>
+				<% end %>
+			</li>
+			<li class="<%= add_class_cps([admin_products_path,new_admin_product_path], 'active')%>">
+				<a href="#">
+					<i class="fa fa-menu-arrow pull-right"></i>
+					<i class="main-icon fa fa-cubes"></i> <span>Products</span>
+				</a>
+				<ul>
+					<li class="<%=add_class_cp(admin_products_path,'active')%>">
+						<%= link_to "All Products", admin_products_path, target: "_parent"%>
+					</li>
+					<li class="<%=add_class_cp(new_admin_product_path,'active')%>">
+						<%= link_to "New Product", new_admin_product_path, target: "_parent"%>
+					</li>
+					<li><a href="#">Categories</a></li>
+				</ul>
+			</li>
+			<li class="<%= add_class_cps([admin_users_path,new_admin_user_path], 'active')%>">
+				<a href="#">
+					<i class="fa fa-menu-arrow pull-right"></i>
+					<i class="main-icon fa fa-users"></i> <span>Users</span>
+				</a>
+				<ul>					
+					<li class="<%=add_class_cp(admin_users_path,'active')%>">
+						<%= link_to "All Users", admin_users_path, target: "_parent"%>
+					</li>
+					<li><a href="#">New User</a></li>
+					<li><a href="#">Your Profile</a></li>
+				</ul>
+			</li>
+		</ul>
+
+		<!-- SECOND MAIN LIST -->
+		<h3>MORE</h3>
+		<ul class="nav nav-list">
+			<li>
+				<a href="calendar.html">
+					<i class="main-icon fa fa-calendar"></i>
+					<span class="label label-warning pull-right">2</span> <span>Calendar</span>
+				</a>
+			</li>
+			<li>
+				<a href="../../HTML/start.html">
+					<i class="main-icon fa fa-link"></i>
+					<span class="label label-danger pull-right">PRO</span> <span>Frontend</span>
+				</a>
+			</li>
+		</ul>
+
+	</nav>
+
+	<span id="asidebg"><!-- aside fixed background --></span>
+</aside>
+<!-- /ASIDE -->
+
+
+<!-- HEADER -->
+<header id="header">
+
+	<!-- Mobile Button -->
+	<button id="mobileMenuBtn"></button>
+
+	<!-- Logo -->
+	<span class="logo pull-left">
+		<%= image_tag( "admin/logo_light.png", height:"35", alt: "admin panel")%>
+	</span>
+
+	<form method="get" action="page-search.html" class="search pull-left hidden-xs">
+		<input type="text" class="form-control" name="k" placeholder="Search for something..." />
+	</form>
+
+	<nav>
+
+		<!-- OPTIONS LIST -->
+		<ul class="nav pull-right">
+
+			<!-- USER OPTIONS -->
+			<li class="dropdown pull-left">
+				<a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+					<%= image_tag( current_user.avatar.url, class: "user-avatar", height:"34", alt: current_user.fullname)%>
+
+					<span class="user-name">
+						<span class="hidden-xs">
+							<%= current_user.fullname%> <i class="fa fa-angle-down"></i>
+						</span>
+					</span>
+				</a>
+				<ul class="dropdown-menu hold-on-click">
+					<li><!-- my calendar -->
+						<a href="calendar.html"><i class="fa fa-calendar"></i> Calendar</a>
+					</li>
+					<li><!-- my inbox -->
+						<a href="#"><i class="fa fa-envelope"></i> Inbox
+							<span class="pull-right label label-default">0</span>
+						</a>
+					</li>
+					<li><!-- settings -->
+						<a href="page-user-profile.html"><i class="fa fa-cogs"></i> Settings</a>
+					</li>
+
+					<li class="divider"></li>
+
+					<li><!-- lockscreen -->
+						<a href="page-lock.html"><i class="fa fa-lock"></i> Lock Screen</a>
+					</li>
+					<li><!-- logout -->
+						<a href="page-login.html"><i class="fa fa-power-off"></i> Log Out</a>
+					</li>
+				</ul>
+			</li>
+			<!-- /USER OPTIONS -->
+
+		</ul>
+		<!-- /OPTIONS LIST -->
+
+	</nav>
+
+</header>
+<!-- /HEADER -->

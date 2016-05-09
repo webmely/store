@@ -1,8 +1,13 @@
 <!DOCTYPE html>
-<html>
+<!--[if IE 8]>      <html class="ie ie8"> <![endif]-->
+<!--[if IE 9]>      <html class="ie ie9"> <![endif]-->
+<!--[if gt IE 9]><!-->  <html> <!--<![endif]-->
 <head>
   <title><%= content_for?(:title) ? content_for(:title) : "Demo website" %> | Demo website description</title>
-  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
+
+    <!-- mobile settings -->
+    <meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=0" />
+    <!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
 
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400%7CRaleway:300,400,500,600,700%7CLato:300,400,400italic,600,700&subset=latin,vietnamese" rel="stylesheet" type="text/css" />
 
@@ -12,7 +17,40 @@
 </head>
 <body class="smoothscroll enable-animation <%= content_for(:body_class)%>">
 <%= render "shared/header" %>
+
+<% unless current_page?(root_path) %>
+<section class="page-header page-header-xs">
+	<div class="container">
+
+		<h1>This is the title</h1>
+
+		<!-- breadcrumbs -->
+		<ol class="breadcrumb">
+			<li><a href="#">Home</a></li>
+			<li><a href="#">Shop</a></li>
+			<li class="active">Page</li>
+		</ol><!-- /breadcrumbs -->
+
+	</div>
+</section>
+<!-- /PAGE HEADER -->
+<% end %>
+
 <%= yield %>
+
+<section class="page-header page-header-xs">
+  <div class="container">
+
+    <!-- breadcrumbs -->
+    <ol class="breadcrumb breadcrumb-inverse">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Shop</a></li>
+      <li class="active">Page</li>
+    </ol><!-- /breadcrumbs -->
+
+  </div>
+</section>
+
 <%= render "shared/footer" %>
 </body>
 </html>

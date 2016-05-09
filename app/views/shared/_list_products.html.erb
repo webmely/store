@@ -1,0 +1,710 @@
+							<!-- CAROUSEL -->
+							<div class="owl-carousel buttons-autohide controlls-over margin-bottom-30 radius-4" data-plugin-options='{"singleItem": true, "autoPlay": 6000, "navigation": true, "pagination": true, "transitionStyle":"fade"}'>
+								<!-- item -->
+								<div>
+									<div class="caption-slider-default">
+										<div class="display-table">
+											<div class="display-table-cell vertical-align-middle">
+												<div class="caption-container text-left">
+													<h2>SHOP <strong>NOW</strong> &ndash; 50% OFF</h2>
+													<p>
+														This is a category banner rotator<br />
+														for any category of your shop.
+													</p>
+												</div>
+											</div>
+										</div>
+									</div>
+
+									<img class="img-responsive radius-4" src="http://localhost:3000/assets/demo/shop/banners/top_2.png" width="851" height="335" alt="">
+								</div>
+								<!-- /item -->
+
+								<!-- item -->
+								<div>
+									<div class="caption-slider-default">
+										<div class="display-table">
+											<div class="display-table-cell vertical-align-middle">
+												<div class="caption-container text-left">
+													<h2>LOREM IPSUM <strong>DOLOR</strong></h2>
+													<p>
+														Unlimited designs, unlimited combinations <br />
+														imagination is the limit!
+													</p>
+												</div>
+											</div>
+										</div>
+									</div>
+
+									<img class="img-responsive radius-4" src="http://localhost:3000/assets/demo/shop/banners/top_1.png" width="851" height="335" alt="">
+								</div>
+								<!-- /item -->
+
+							</div>
+							<!-- /CAROUSEL -->
+
+
+							<!-- LIST OPTIONS -->
+							<div class="clearfix shop-list-options margin-bottom-20">
+
+								<ul class="pagination nomargin pull-right">
+									<li><a href="#">&laquo;</a></li>
+									<li class="active"><a href="#">1</a></li>
+									<li><a href="#">2</a></li>
+									<li><a href="#">3</a></li>
+									<li><a href="#">4</a></li>
+									<li><a href="#">&raquo;</a></li>
+								</ul>
+
+								<div class="options-left">
+									<select>
+										<option value="pos_asc">Position ASC</option>
+										<option value="pos_desc">Position DESC</option>
+										<option value="name_asc">Name ASC</option>
+										<option value="name_desc">Name DESC</option>
+										<option value="price_asc">Price ASC</option>
+										<option value="price_desc">Price DESC</option>
+									</select>
+									
+									<a class="btn active fa fa-th" href="shop-4col-left.html"><!-- grid --></a>
+									<a class="btn fa fa-list" href="shop-1col-left.html"><!-- list --></a>
+								</div>
+
+							</div>
+							<!-- /LIST OPTIONS -->
+
+
+							<ul class="shop-item-list row list-inline nomargin">
+
+								<!-- ITEM -->
+								<li class="col-lg-3 col-sm-3">
+
+									<div class="shop-item">
+
+										<div class="thumbnail">
+											<!-- product image(s) -->
+											<%= link_to product_path(1), class: "shop-item-image", target: "_parent"  do%>
+												<img class="img-responsive" src="http://localhost:3000/assets/demo/shop/products/300x450/p13.jpg" alt="shop first image" />
+												<img class="img-responsive" src="http://localhost:3000/assets/demo/shop/products/300x450/p14.jpg" alt="shop hover image" />
+											<% end %>
+											<!-- /product image(s) -->
+
+											<!-- hover buttons -->
+											<div class="shop-option-over"><!-- replace data-item-id width the real item ID - used by js/view/demo.shop.js -->
+												<a class="btn btn-default add-wishlist" href="#" data-item-id="1" data-toggle="tooltip" title="Add To Wishlist"><i class="fa fa-heart nopadding"></i></a>
+												<a class="btn btn-default add-compare" href="#" data-item-id="1" data-toggle="tooltip" title="Add To Compare"><i class="fa fa-bar-chart-o nopadding" data-toggle="tooltip"></i></a>
+											</div>
+											<!-- /hover buttons -->
+
+											<!-- product more info -->
+											<div class="shop-item-info">
+												<span class="label label-success">NEW</span>
+												<span class="label label-danger">SALE</span>
+											</div>
+											<!-- /product more info -->
+										</div>
+										
+										<div class="shop-item-summary text-center">
+											<h2>Cotton 100% - Pink Shirt</h2>
+											
+											<!-- rating -->
+											<div class="shop-item-rating-line">
+												<div class="rating rating-4 size-13"><!-- rating-0 ... rating-5 --></div>
+											</div>
+											<!-- /rating -->
+
+											<!-- price -->
+											<div class="shop-item-price">
+												<span class="line-through">$98.00</span>
+												$78.00
+											</div>
+											<!-- /price -->
+										</div>
+
+											<!-- buttons -->
+											<div class="shop-item-buttons text-center">
+												<a class="btn btn-default" href="shop-cart.html"><i class="fa fa-cart-plus"></i> Add to Cart</a>
+											</div>
+											<!-- /buttons -->
+									</div>
+
+								</li>
+								<!-- /ITEM -->
+
+								<!-- ITEM -->
+								<li class="col-lg-3 col-sm-3">
+
+									<div class="shop-item">
+
+										<div class="thumbnail">
+											<!-- product image(s) -->
+											<%= link_to product_path(1), class: "shop-item-image", target: "_parent"  do%>
+												<img class="img-responsive" src="http://localhost:3000/assets/demo/shop/products/300x450/p11.jpg" alt="shop hover image" />
+												<img class="img-responsive" src="http://localhost:3000/assets/demo/shop/products/300x450/p3.jpg" alt="shop first image" />
+											<% end %>
+											<!-- /product image(s) -->
+
+											<!-- hover buttons -->
+											<div class="shop-option-over"><!-- replace data-item-id width the real item ID - used by js/view/demo.shop.js -->
+												<a class="btn btn-default add-wishlist" href="#" data-item-id="2" data-toggle="tooltip" title="Add To Wishlist"><i class="fa fa-heart nopadding"></i></a>
+												<a class="btn btn-default add-compare" href="#" data-item-id="2" data-toggle="tooltip" title="Add To Compare"><i class="fa fa-bar-chart-o nopadding" data-toggle="tooltip"></i></a>
+											</div>
+											<!-- /hover buttons -->
+										</div>
+										
+										<div class="shop-item-summary text-center">
+											<h2>Black Long Lady Shirt</h2>
+											
+											<!-- rating -->
+											<div class="shop-item-rating-line">
+												<div class="rating rating-0 size-13"><!-- rating-0 ... rating-5 --></div>
+											</div>
+											<!-- /rating -->
+
+											<!-- price -->
+											<div class="shop-item-price">
+												$128.00
+											</div>
+											<!-- /price -->
+										</div>
+
+											<!-- buttons -->
+											<div class="shop-item-buttons text-center">
+												<span class="out-of-stock">out of stock</span><!-- add .clean to remove css characteres -->
+											</div>
+											<!-- /buttons -->
+									</div>
+
+								</li>
+								<!-- /ITEM -->
+
+								<!-- ITEM -->
+								<li class="col-lg-3 col-sm-3">
+
+									<div class="shop-item">
+
+										<div class="thumbnail">
+											<!-- product image(s) -->
+											<%= link_to product_path(1), class: "shop-item-image", target: "_parent"  do%>
+												<img class="img-responsive" src="http://localhost:3000/assets/demo/shop/products/300x450/p12.jpg" alt="shop first image" />
+											<% end %>
+											<!-- /product image(s) -->
+
+											<!-- hover buttons -->
+											<div class="shop-option-over"><!-- replace data-item-id width the real item ID - used by js/view/demo.shop.js -->
+												<a class="btn btn-default add-wishlist" href="#" data-item-id="3" data-toggle="tooltip" title="Add To Wishlist"><i class="fa fa-heart nopadding"></i></a>
+												<a class="btn btn-default add-compare" href="#" data-item-id="3" data-toggle="tooltip" title="Add To Compare"><i class="fa fa-bar-chart-o nopadding" data-toggle="tooltip"></i></a>
+											</div>
+											<!-- /hover buttons -->
+											
+											<!-- countdown -->
+											<div class="shop-item-counter">
+												<div class="countdown" data-from="January 31, 2018 15:03:26" data-labels="years,months,weeks,days,hour,min,sec"><!-- Example Date From: December 31, 2018 15:03:26 --></div>
+											</div>
+											<!-- /countdown -->
+										</div>
+										
+										<div class="shop-item-summary text-center">
+											<h2>Night Dress For Ladies</h2>
+											
+											<!-- rating -->
+											<div class="shop-item-rating-line">
+												<div class="rating rating-1 size-13"><!-- rating-0 ... rating-5 --></div>
+											</div>
+											<!-- /rating -->
+
+											<!-- price -->
+											<div class="shop-item-price">
+												$34.00
+											</div>
+											<!-- /price -->
+										</div>
+
+											<!-- buttons -->
+											<div class="shop-item-buttons text-center">
+												<a class="btn btn-default" href="shop-cart.html"><i class="fa fa-cart-plus"></i> Add to Cart</a>
+											</div>
+											<!-- /buttons -->
+									</div>
+
+								</li>
+								<!-- /ITEM -->
+
+								<!-- ITEM -->
+								<li class="col-lg-3 col-sm-3">
+
+									<div class="shop-item">
+
+										<div class="thumbnail">
+											<!-- product image(s) -->
+											<%= link_to product_path(1), class: "shop-item-image", target: "_parent"  do%>
+												<!-- CAROUSEL -->
+												<div class="owl-carousel nomargin" data-plugin-options='{"singleItem": true, "autoPlay": 3000, "navigation": false, "pagination": false, "transitionStyle":"fadeUp"}'>
+													<img class="img-responsive" src="http://localhost:3000/assets/demo/shop/products/300x450/p10.jpg" alt="">
+													<img class="img-responsive" src="http://localhost:3000/assets/demo/shop/products/300x450/p1.jpg" alt="">
+													<img class="img-responsive" src="http://localhost:3000/assets/demo/shop/products/300x450/p14.jpg" alt="">
+												</div>
+												<!-- /CAROUSEL -->
+											<% end %>
+											<!-- /product image(s) -->
+
+											<!-- hover buttons -->
+											<div class="shop-option-over"><!-- replace data-item-id width the real item ID - used by js/view/demo.shop.js -->
+												<a class="btn btn-default add-wishlist" href="#" data-item-id="4" data-toggle="tooltip" title="Add To Wishlist"><i class="fa fa-heart nopadding"></i></a>
+												<a class="btn btn-default add-compare" href="#" data-item-id="4" data-toggle="tooltip" title="Add To Compare"><i class="fa fa-bar-chart-o nopadding" data-toggle="tooltip"></i></a>
+											</div>
+											<!-- /hover buttons -->
+
+											<!-- product more info -->
+											<div class="shop-item-info">
+												<span class="label label-success">NEW</span>
+											</div>
+											<!-- /product more info -->
+										</div>
+										
+										<div class="shop-item-summary text-center">
+											<h2>Long Grey Dress - Special</h2>
+											
+											<!-- rating -->
+											<div class="shop-item-rating-line">
+												<div class="rating rating-5 size-13"><!-- rating-0 ... rating-5 --></div>
+											</div>
+											<!-- /rating -->
+
+											<!-- price -->
+											<div class="shop-item-price">
+												$76.00
+											</div>
+											<!-- /price -->
+										</div>
+
+											<!-- buttons -->
+											<div class="shop-item-buttons text-center">
+												<a class="btn btn-default" href="shop-cart.html"><i class="fa fa-cart-plus"></i> Add to Cart</a>
+											</div>
+											<!-- /buttons -->
+									</div>
+
+								</li>
+								<!-- /ITEM -->
+
+								<!-- ITEM -->
+								<li class="col-lg-3 col-sm-3">
+
+									<div class="shop-item">
+
+										<div class="thumbnail">
+											<!-- product image(s) -->
+											<%= link_to product_path(1), class: "shop-item-image", target: "_parent"  do%>
+												<img class="img-responsive" src="http://localhost:3000/assets/demo/shop/products/300x450/p9.jpg" alt="shop first image" />
+											<% end %>
+											<!-- /product image(s) -->
+
+											<!-- hover buttons -->
+											<div class="shop-option-over"><!-- replace data-item-id width the real item ID - used by js/view/demo.shop.js -->
+												<a class="btn btn-default add-wishlist" href="#" data-item-id="5" data-toggle="tooltip" title="Add To Wishlist"><i class="fa fa-heart nopadding"></i></a>
+												<a class="btn btn-default add-compare" href="#" data-item-id="5" data-toggle="tooltip" title="Add To Compare"><i class="fa fa-bar-chart-o nopadding" data-toggle="tooltip"></i></a>
+											</div>
+											<!-- /hover buttons -->
+
+
+											<!-- product more info -->
+											<div class="shop-item-info">
+												<span class="label label-danger">SALE</span>
+											</div>
+											<!-- /product more info -->
+										</div>
+										
+										<div class="shop-item-summary text-center">
+											<h2>Grey Lady Hat</h2>
+											
+											<!-- rating -->
+											<div class="shop-item-rating-line">
+												<div class="rating rating-4 size-13"><!-- rating-0 ... rating-5 --></div>
+											</div>
+											<!-- /rating -->
+
+											<!-- price -->
+											<div class="shop-item-price">
+												<span class="line-through">$67.00</span>
+												$21.00
+											</div>
+											<!-- /price -->
+										</div>
+
+											<!-- buttons -->
+											<div class="shop-item-buttons text-center">
+												<a class="btn btn-default" href="shop-cart.html"><i class="fa fa-cart-plus"></i> Add to Cart</a>
+											</div>
+											<!-- /buttons -->
+									</div>
+
+								</li>
+								<!-- /ITEM -->
+
+								<!-- ITEM -->
+								<li class="col-lg-3 col-sm-3">
+
+									<div class="shop-item">
+
+										<div class="thumbnail">
+											<!-- product image(s) -->
+											<%= link_to product_path(1), class: "shop-item-image", target: "_parent"  do%>
+												<img class="img-responsive" src="http://localhost:3000/assets/demo/shop/products/300x450/p8.jpg" alt="shop first image" />
+											<% end %>
+											<!-- /product image(s) -->
+
+											<!-- hover buttons -->
+											<div class="shop-option-over"><!-- replace data-item-id width the real item ID - used by js/view/demo.shop.js -->
+												<a class="btn btn-default add-wishlist" href="#" data-item-id="6" data-toggle="tooltip" title="Add To Wishlist"><i class="fa fa-heart nopadding"></i></a>
+												<a class="btn btn-default add-compare" href="#" data-item-id="6" data-toggle="tooltip" title="Add To Compare"><i class="fa fa-bar-chart-o nopadding" data-toggle="tooltip"></i></a>
+											</div>
+											<!-- /hover buttons -->
+
+											<!-- countdown -->
+											<div class="shop-item-counter">
+												<div class="countdown" data-from="December 31, 2017 08:22:01" data-labels="years,months,weeks,days,hour,min,sec"><!-- Example Date From: December 31, 2018 15:03:26 --></div>
+											</div>
+											<!-- /countdown -->
+										</div>
+										
+										<div class="shop-item-summary text-center">
+											<h2>Beach Black Lady Suit</h2>
+											
+											<!-- rating -->
+											<div class="shop-item-rating-line">
+												<div class="rating rating-4 size-13"><!-- rating-0 ... rating-5 --></div>
+											</div>
+											<!-- /rating -->
+
+											<!-- price -->
+											<div class="shop-item-price">
+												$56.00
+											</div>
+											<!-- /price -->
+										</div>
+
+											<!-- buttons -->
+											<div class="shop-item-buttons text-center">
+												<a class="btn btn-default" href="shop-cart.html"><i class="fa fa-cart-plus"></i> Add to Cart</a>
+											</div>
+											<!-- /buttons -->
+									</div>
+
+								</li>
+								<!-- /ITEM -->
+
+								<!-- ITEM -->
+								<li class="col-lg-3 col-sm-3">
+
+									<div class="shop-item">
+
+										<div class="thumbnail">
+											<!-- product image(s) -->
+											<%= link_to product_path(1), class: "shop-item-image", target: "_parent"  do%>
+												<img class="img-responsive" src="http://localhost:3000/assets/demo/shop/products/300x450/p7.jpg" alt="shop first image" />
+											<% end %>
+											<!-- /product image(s) -->
+
+											<!-- hover buttons -->
+											<div class="shop-option-over"><!-- replace data-item-id width the real item ID - used by js/view/demo.shop.js -->
+												<a class="btn btn-default add-wishlist" href="#" data-item-id="7" data-toggle="tooltip" title="Add To Wishlist"><i class="fa fa-heart nopadding"></i></a>
+												<a class="btn btn-default add-compare" href="#" data-item-id="7" data-toggle="tooltip" title="Add To Compare"><i class="fa fa-bar-chart-o nopadding" data-toggle="tooltip"></i></a>
+											</div>
+											<!-- /hover buttons -->
+										</div>
+										
+										<div class="shop-item-summary text-center">
+											<h2>Town Dress - Black</h2>
+											
+											<!-- rating -->
+											<div class="shop-item-rating-line">
+												<div class="rating rating-4 size-13"><!-- rating-0 ... rating-5 --></div>
+											</div>
+											<!-- /rating -->
+
+											<!-- price -->
+											<div class="shop-item-price">
+												$154.00
+											</div>
+											<!-- /price -->
+										</div>
+
+											<!-- buttons -->
+											<div class="shop-item-buttons text-center">
+												<a class="btn btn-default" href="shop-cart.html"><i class="fa fa-cart-plus"></i> Add to Cart</a>
+											</div>
+											<!-- /buttons -->
+									</div>
+
+								</li>
+								<!-- /ITEM -->
+
+								<!-- ITEM -->
+								<li class="col-lg-3 col-sm-3">
+
+									<div class="shop-item">
+
+										<div class="thumbnail">
+											<!-- product image(s) -->
+											<%= link_to product_path(1), class: "shop-item-image", target: "_parent"  do%>
+												<img class="img-responsive" src="http://localhost:3000/assets/demo/shop/products/300x450/p6.jpg" alt="shop first image" />
+												<img class="img-responsive" src="http://localhost:3000/assets/demo/shop/products/300x450/p14.jpg" alt="shop hover image" />
+											<% end %>
+											<!-- /product image(s) -->
+
+											<!-- hover buttons -->
+											<div class="shop-option-over"><!-- replace data-item-id width the real item ID - used by js/view/demo.shop.js -->
+												<a class="btn btn-default add-wishlist" href="#" data-item-id="8" data-toggle="tooltip" title="Add To Wishlist"><i class="fa fa-heart nopadding"></i></a>
+												<a class="btn btn-default add-compare" href="#" data-item-id="8" data-toggle="tooltip" title="Add To Compare"><i class="fa fa-bar-chart-o nopadding" data-toggle="tooltip"></i></a>
+											</div>
+											<!-- /hover buttons -->
+										</div>
+										
+										<div class="shop-item-summary text-center">
+											<h2>Chick Lady Fashion</h2>
+											
+											<!-- rating -->
+											<div class="shop-item-rating-line">
+												<div class="rating rating-4 size-13"><!-- rating-0 ... rating-5 --></div>
+											</div>
+											<!-- /rating -->
+
+											<!-- price -->
+											<div class="shop-item-price">
+												$167.00
+											</div>
+											<!-- /price -->
+										</div>
+
+											<!-- buttons -->
+											<div class="shop-item-buttons text-center">
+												<a class="btn btn-default" href="shop-cart.html"><i class="fa fa-cart-plus"></i> Add to Cart</a>
+											</div>
+											<!-- /buttons -->
+									</div>
+
+								</li>
+								<!-- /ITEM -->
+
+								<!-- ITEM -->
+								<li class="col-lg-3 col-sm-3">
+
+									<div class="shop-item">
+
+										<div class="thumbnail">
+											<!-- product image(s) -->
+											<%= link_to product_path(1), class: "shop-item-image", target: "_parent"  do%>
+												<!-- CAROUSEL -->
+												<div class="owl-carousel buttons-autohide controlls-over nomargin" data-plugin-options='{"singleItem": true, "autoPlay": 3500, "navigation": false, "pagination": false, "transitionStyle":"fadeUp"}'>
+													<img class="img-responsive" src="http://localhost:3000/assets/demo/shop/products/300x450/p5.jpg" alt="">
+													<img class="img-responsive" src="http://localhost:3000/assets/demo/shop/products/300x450/p1.jpg" alt="">
+												</div>
+												<!-- /CAROUSEL -->
+											<% end %>
+											<!-- /product image(s) -->
+
+											<!-- hover buttons -->
+											<div class="shop-option-over"><!-- replace data-item-id width the real item ID - used by js/view/demo.shop.js -->
+												<a class="btn btn-default add-wishlist" href="#" data-item-id="9" data-toggle="tooltip" title="Add To Wishlist"><i class="fa fa-heart nopadding"></i></a>
+												<a class="btn btn-default add-compare" href="#" data-item-id="9" data-toggle="tooltip" title="Add To Compare"><i class="fa fa-bar-chart-o nopadding" data-toggle="tooltip"></i></a>
+											</div>
+											<!-- /hover buttons -->
+										</div>
+										
+										<div class="shop-item-summary text-center">
+											<h2>Pink Dress 100% Cotton</h2>
+											
+											<!-- rating -->
+											<div class="shop-item-rating-line">
+												<div class="rating rating-4 size-13"><!-- rating-0 ... rating-5 --></div>
+											</div>
+											<!-- /rating -->
+
+											<!-- price -->
+											<div class="shop-item-price">
+												$44.00
+											</div>
+											<!-- /price -->
+										</div>
+
+											<!-- buttons -->
+											<div class="shop-item-buttons text-center">
+												<a class="btn btn-default" href="shop-cart.html"><i class="fa fa-cart-plus"></i> Add to Cart</a>
+											</div>
+											<!-- /buttons -->
+									</div>
+
+								</li>
+								<!-- /ITEM -->
+
+								<!-- ITEM -->
+								<li class="col-lg-3 col-sm-3">
+
+									<div class="shop-item">
+
+										<div class="thumbnail">
+											<!-- product image(s) -->
+											<%= link_to product_path(1), class: "shop-item-image", target: "_parent"  do%>
+												<img class="img-responsive" src="http://localhost:3000/assets/demo/shop/products/300x450/p4.jpg" alt="shop first image" />
+											<% end %>
+											<!-- /product image(s) -->
+
+											<!-- hover buttons -->
+											<div class="shop-option-over"><!-- replace data-item-id width the real item ID - used by js/view/demo.shop.js -->
+												<a class="btn btn-default add-wishlist" href="#" data-item-id="10" data-toggle="tooltip" title="Add To Wishlist"><i class="fa fa-heart nopadding"></i></a>
+												<a class="btn btn-default add-compare" href="#" data-item-id="10" data-toggle="tooltip" title="Add To Compare"><i class="fa fa-bar-chart-o nopadding" data-toggle="tooltip"></i></a>
+											</div>
+											<!-- /hover buttons -->
+										</div>
+										
+										<div class="shop-item-summary text-center">
+											<h2>White And Black</h2>
+											
+											<!-- rating -->
+											<div class="shop-item-rating-line">
+												<div class="rating rating-4 size-13"><!-- rating-0 ... rating-5 --></div>
+											</div>
+											<!-- /rating -->
+
+											<!-- price -->
+											<div class="shop-item-price">
+												$31.00
+											</div>
+											<!-- /price -->
+										</div>
+
+											<!-- buttons -->
+											<div class="shop-item-buttons text-center">
+												<a class="btn btn-default" href="shop-cart.html"><i class="fa fa-cart-plus"></i> Add to Cart</a>
+											</div>
+											<!-- /buttons -->
+									</div>
+
+								</li>
+								<!-- /ITEM -->
+
+								<!-- ITEM -->
+								<li class="col-lg-3 col-sm-3">
+
+									<div class="shop-item">
+
+										<div class="thumbnail">
+											<!-- product image(s) -->
+											<%= link_to product_path(1), class: "shop-item-image", target: "_parent"  do%>
+												<img class="img-responsive" src="http://localhost:3000/assets/demo/shop/products/300x450/p11.jpg" alt="shop first image" />
+											<% end %>
+											<!-- /product image(s) -->
+
+											<!-- hover buttons -->
+											<div class="shop-option-over"><!-- replace data-item-id width the real item ID - used by js/view/demo.shop.js -->
+												<a class="btn btn-default add-wishlist" href="#" data-item-id="11" data-toggle="tooltip" title="Add To Wishlist"><i class="fa fa-heart nopadding"></i></a>
+												<a class="btn btn-default add-compare" href="#" data-item-id="11" data-toggle="tooltip" title="Add To Compare"><i class="fa fa-bar-chart-o nopadding" data-toggle="tooltip"></i></a>
+											</div>
+											<!-- /hover buttons -->
+
+											<!-- countdown -->
+											<div class="shop-item-counter">
+												<div class="countdown" data-from="January 12, 2018 12:34:55" data-labels="years,months,weeks,days,hour,min,sec"><!-- Example Date From: December 31, 2018 15:03:26 --></div>
+											</div>
+											<!-- /countdown -->
+										</div>
+										
+										<div class="shop-item-summary text-center">
+											<h2>Long Black Top</h2>
+											
+											<!-- rating -->
+											<div class="shop-item-rating-line">
+												<div class="rating rating-4 size-13"><!-- rating-0 ... rating-5 --></div>
+											</div>
+											<!-- /rating -->
+
+											<!-- price -->
+											<div class="shop-item-price">
+												$99.00
+											</div>
+											<!-- /price -->
+										</div>
+
+											<!-- buttons -->
+											<div class="shop-item-buttons text-center">
+												<a class="btn btn-default" href="shop-cart.html"><i class="fa fa-cart-plus"></i> Add to Cart</a>
+											</div>
+											<!-- /buttons -->
+									</div>
+
+								</li>
+								<!-- /ITEM -->
+
+								<!-- ITEM -->
+								<li class="col-lg-3 col-sm-3">
+
+									<div class="shop-item">
+
+										<div class="thumbnail">
+											<!-- product image(s) -->
+											<%= link_to product_path(1), class: "shop-item-image", target: "_parent"  do%>
+												<img class="img-responsive" src="http://localhost:3000/assets/demo/shop/products/300x450/p2.jpg" alt="shop first image" />
+												<img class="img-responsive" src="http://localhost:3000/assets/demo/shop/products/300x450/p12.jpg" alt="shop hover image" />
+											<% end %>
+											<!-- /product image(s) -->
+
+											<!-- hover buttons -->
+											<div class="shop-option-over"><!-- replace data-item-id width the real item ID - used by js/view/demo.shop.js -->
+												<a class="btn btn-default add-wishlist" href="#" data-item-id="12" data-toggle="tooltip" title="Add To Wishlist"><i class="fa fa-heart nopadding"></i></a>
+												<a class="btn btn-default add-compare" href="#" data-item-id="12" data-toggle="tooltip" title="Add To Compare"><i class="fa fa-bar-chart-o nopadding" data-toggle="tooltip"></i></a>
+											</div>
+											<!-- /hover buttons -->
+
+											<!-- product more info -->
+											<div class="shop-item-info">
+												<span class="label label-success">NEW</span>
+												<span class="label label-danger">SALE</span>
+											</div>
+											<!-- /product more info -->
+										</div>
+										
+										<div class="shop-item-summary text-center">
+											<h2>Black Fashion Hat</h2>
+											
+											<!-- rating -->
+											<div class="shop-item-rating-line">
+												<div class="rating rating-4 size-13"><!-- rating-0 ... rating-5 --></div>
+											</div>
+											<!-- /rating -->
+
+											<!-- price -->
+											<div class="shop-item-price">
+												<span class="line-through">$77.00</span>
+												$65.00
+											</div>
+											<!-- /price -->
+										</div>
+
+											<!-- buttons -->
+											<div class="shop-item-buttons text-center">
+												<a class="btn btn-default" href="shop-cart.html"><i class="fa fa-cart-plus"></i> Add to Cart</a>
+											</div>
+											<!-- /buttons -->
+									</div>
+
+								</li>
+								<!-- /ITEM -->
+
+							</ul>
+
+							<hr />
+
+							<!-- Pagination Default -->
+							<div class="text-center">
+								<ul class="pagination">
+									<li><a href="#">&laquo;</a></li>
+									<li class="active"><a href="#">1</a></li>
+									<li><a href="#">2</a></li>
+									<li><a href="#">3</a></li>
+									<li><a href="#">4</a></li>
+									<li><a href="#">5</a></li>
+									<li><a href="#">&raquo;</a></li>
+								</ul>
+							</div>
+							<!-- /Pagination Default -->

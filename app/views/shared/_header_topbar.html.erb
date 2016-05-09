@@ -12,8 +12,12 @@
 					<li><a tabindex="-1" href="#"><i class="fa fa-history"></i> ORDER HISTORY</a></li>
 					<li class="divider"></li>
 					<li><a tabindex="-1" href="#"><i class="fa fa-bookmark"></i> MY WISHLIST</a></li>
+					
 					<li><a tabindex="-1" href="#"><i class="fa fa-edit"></i> MY REVIEWS</a></li>
-					<li><a tabindex="-1" href="#"><i class="fa fa-cog"></i> MY SETTINGS</a></li>
+					<li>
+						<%= link_to edit_user_path(current_user), "tabindex" => "-1", target: "_parent"  do%>
+							<i class="fa fa-cog"></i> MY SETTINGS
+						<% end%>
 					<li class="divider"></li>
 					<li>
 						<%= link_to destroy_user_session_path, :method => "delete", "data-confirm" => "Are you sure?", "tabindex" => "-1"  do%>
@@ -25,10 +29,10 @@
 		<% else %>
 
 			<li class="hidden-xs">
-				<%= link_to "LOGIN", new_user_session_path %>
+				<%= link_to "LOGIN", new_user_session_path, target: "_parent" %>
 			</li>
 			<li class="hidden-xs">
-				<%= link_to "REGISTER", new_user_registration_path %>
+				<%= link_to "REGISTER", new_user_registration_path, target: "_parent" %>
 			</li>
 		<% end %>
 		</ul>

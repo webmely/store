@@ -1,0 +1,113 @@
+<!-- LIST OPTIONS --
+<div class="clearfix shop-list-options margin-bottom-20">
+	<ul class="pagination nomargin pull-right">
+		<li><a href="#">&laquo;</a></li>
+		<li class="active"><a href="#">1</a></li>
+		<li><a href="#">2</a></li>
+		<li><a href="#">3</a></li>
+		<li><a href="#">4</a></li>
+		<li><a href="#">&raquo;</a></li>
+	</ul>
+
+	<div class="options-left">
+		<select>
+			<option value="pos_asc">Position ASC</option>
+			<option value="pos_desc">Position DESC</option>
+			<option value="name_asc">Name ASC</option>
+			<option value="name_desc">Name DESC</option>
+			<option value="price_asc">Price ASC</option>
+			<option value="price_desc">Price DESC</option>
+		</select>
+
+		<a class="btn active fa fa-th" href="shop-4col-left.html"></a>
+		<a class="btn fa fa-list" href="shop-1col-left.html"></a>
+	</div>
+</div>
+<!-- /LIST OPTIONS -->
+
+
+<ul class="shop-item-list row list-inline nomargin">
+
+	<!-- ITEM -->
+	<% @products.each do |p|%>
+	<li class="col-lg-3 col-sm-3">
+		<div class="shop-item">
+			<div class="thumbnail">
+				<!-- product image(s) -->
+				<%= link_to product_path(p), class: "shop-item-image", target: "_parent"  do%>
+				<%= image_tag p.thumbnail.thumb_sm.url, :class => "img-responsive"%>
+				<% end %>
+				<!-- /product image(s) -->
+
+				<!-- hover buttons --
+				<div class="shop-option-over">
+					<a class="btn btn-default add-wishlist" href="#" data-item-id="1" data-toggle="tooltip" title="Add To Wishlist"><i class="fa fa-heart nopadding"></i></a>
+					<a class="btn btn-default add-compare" href="#" data-item-id="1" data-toggle="tooltip" title="Add To Compare"><i class="fa fa-bar-chart-o nopadding" data-toggle="tooltip"></i></a>
+				</div>
+				<!-- /hover buttons -->
+
+				<!-- product more info --
+				<div class="shop-item-info">
+					<span class="label label-success">NEW</span>
+					<span class="label label-danger">SALE</span>
+				</div>
+				<!-- /product more info -->
+			</div>
+
+			<div class="shop-item-summary text-center">
+				<h2><%= p.name%></h2>
+
+				<!-- rating --
+				<div class="shop-item-rating-line">
+					<div class="rating rating-4 size-13"></div>
+				</div>
+				<!-- /rating -->
+
+				<!-- price -->
+				<div class="shop-item-price">
+					<% unless p.price_current.present? %>
+						<%= number_to_currency(p.price)%>
+					<% else%>
+						<span class="line-through">
+							<%= number_to_currency(p.price)%>
+						</span>
+						<%= number_to_currency(p.price_current)%>
+					<% end%>
+				</div>
+				<!-- /price -->
+			</div>
+
+			<!-- buttons -->
+			<% unless p.active? %>
+			<div class="shop-item-buttons text-center">
+				<span class="out-of-stock">out of stock</span>
+			</div>
+			<% else%>
+			<div class="shop-item-buttons text-center">
+				<a class="btn btn-default" href="shop-cart.html"><i class="fa fa-cart-plus"></i> Add to Cart</a>
+			</div>
+			<% end%>
+			<!-- /buttons -->
+		</div>
+	</li>
+	<!-- /ITEM -->
+	<%end%>
+
+
+</ul>
+
+<hr />
+
+<!-- Pagination Default --
+<div class="text-center">
+	<ul class="pagination">
+		<li><a href="#">&laquo;</a></li>
+		<li class="active"><a href="#">1</a></li>
+		<li><a href="#">2</a></li>
+		<li><a href="#">3</a></li>
+		<li><a href="#">4</a></li>
+		<li><a href="#">5</a></li>
+		<li><a href="#">&raquo;</a></li>
+	</ul>
+</div>
+<!-- /Pagination Default -->

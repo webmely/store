@@ -10,6 +10,8 @@ gem 'mysql2', '~> 0.3.18'
 gem 'carrierwave', '~> 0.11.0'
 gem "font-awesome-rails"
 gem 'owlcarousel-rails'
+gem "gretel"
+gem "wysiwyg-rails"
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
