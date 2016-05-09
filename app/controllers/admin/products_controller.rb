@@ -2,7 +2,7 @@ module Admin
 	class ProductsController < BaseController
 		before_action :set_product, only:[:show, :edit, :update, :destroy]
 		def index
-			@products = Product.all
+			@products = Product.order("created_at DESC")
 		end
 
 		def new
@@ -15,15 +15,12 @@ module Admin
 
 		def create
 			@product = Product.new(safe_params)
-
-			if @product.save
-				redirect_to :back
-			else
-				render 'new'
-			end
+			@product.save
+			redirect_to admin_products_path
 		end
 
-		def update
+		def update			
+			@product = Product.find(params[:id])
 			@product.update(safe_params)
 			redirect_to :back
 		end

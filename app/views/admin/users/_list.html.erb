@@ -2,36 +2,27 @@
 	<table class="table table-bordered table-vertical-middle nomargin">
 		<thead>
 			<tr>
-				<th>Users</th>
-				<th>Price</th>
-				<th>Ratings</th>
+				<th>Avatar</th>
+				<th>Full name</th>
+				<th>Email</th>
+				<th>Phone</th>
+				<th>Address</th>
 				<th>Action</th>
 			</tr>
 		</thead>
 		<tbody>
-			<% @products.each do |p|%>
+			<% @users.each do |u|%>
 			<tr>
+				<td><%= image_tag u.avatar.url, :class => "product-thumb img-responsive"%></td>
+				<td><%= u.fullname%></td>
+				<td><%= u.email %></td>
+				<td><%= u.phone %></td>
+				<td><%= u.address %></td>
 				<td>
-					<%= image_tag p.thumbnail.thumb_xs.url, :class => "product-thumb img-responsive"%>
-					<strong><%= p.name%></strong>
-					<p><%= p.short_description%></p>
-				</td>
-				<td>
-					<% unless p.price_current.present? %>
-						<%= number_to_currency(p.price)%>
-					<% else%>
-						<span class="line-through">
-							<%= number_to_currency(p.price)%>
-						</span>
-						<%= number_to_currency(p.price_current)%>
-					<% end%>
-				</td>
-				<td><div class="rating rating-0 size-13 width-100"></div></td>
-				<td>
-					<%= link_to edit_admin_product_path(p), class: "btn btn-default btn-xs", target: "_parent"  do%>
+					<%= link_to edit_admin_user_path(u), class: "btn btn-default btn-xs", target: "_parent"  do%>
 						<i class="fa fa-edit white"></i> Edit
 					<% end %>
-					<%= link_to admin_product_path(p), method: "DELETE", class: "btn btn-default btn-xs", target: "_parent"  do%>
+					<%= link_to admin_user_path(u), method: "DELETE", class: "btn btn-default btn-xs", target: "_parent"  do%>
 						<i class="fa fa-times white"></i> Delete
 					<% end %>
 				</td>

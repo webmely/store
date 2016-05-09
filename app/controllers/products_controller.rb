@@ -7,10 +7,17 @@ class ProductsController < ApplicationController
   def show  	
   end
 
-  def update
-    @product.update(safe_params)
-    redirect_to :back
-  end
+    def create
+      @product = Product.new(safe_params)
+      @product.save
+      redirect_to :back
+    end
+
+    def update      
+      @product = Product.find(params[:id])
+      @product.update(safe_params)
+      redirect_to :back
+    end
 
   private
   def set_product
