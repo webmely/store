@@ -8,6 +8,8 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.string :address
       t.string :phone
       t.string :avatar
+      t.string :website
+      t.text :biographical
 
       ## Recoverable
       t.string   :reset_password_token

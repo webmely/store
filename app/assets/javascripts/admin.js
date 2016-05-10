@@ -15,6 +15,8 @@
 //= require turbolinks
 //= require twitter/bootstrap
 //= require owl.carousel
+//= require select2
+//= require select2_locale_pt-BR
 //
 //= require froala_editor.min.js
 // Include other plugins.

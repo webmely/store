@@ -12,6 +12,7 @@ gem "font-awesome-rails"
 gem 'owlcarousel-rails'
 gem "gretel"
 gem "wysiwyg-rails"
+gem 'kaminari'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -39,6 +40,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 gem 'rmagick', '~> 2.15', '>= 2.15.4'
+gem 'select2-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

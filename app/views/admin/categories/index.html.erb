@@ -1,0 +1,42 @@
+<%- title "All Categories" %>
+
+<!-- page title -->
+<header id="page-header">
+	<h1>Products</h1>
+	<ol class="breadcrumb">
+		<li><a href="#">Tables</a></li>
+		<li class="active">Bootstrap Tables</li>
+	</ol>
+</header>
+<!-- /page title -->
+
+<div id="content" class="padding-20">
+	<div class="row">
+		<div class="col-md-5">		
+			<%= render 'form_mini' %>
+		</div>
+
+
+		<div class="col-md-7">
+			<div id="panel-1" class="panel panel-default">
+				<div class="panel-heading">
+					<span class="title elipsis">
+						<strong>List Categories</strong> <!-- panel title -->
+					</span>
+
+					<!-- right options -->
+					<ul class="options pull-right list-inline">
+						<li><a href="#" class="opt panel_fullscreen hidden-xs" data-toggle="tooltip" title="Fullscreen" data-placement="bottom"><i class="fa fa-expand"></i></a></li>
+					</ul>
+					<!-- /right options -->
+
+				</div>
+
+				<!-- panel content -->
+				<div class="panel-body">
+					<%= render 'list' %>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -13,7 +13,7 @@
 		<tbody>
 			<% @users.each do |u|%>
 			<tr>
-				<td><%= image_tag u.avatar.url, :class => "product-thumb img-responsive"%></td>
+				<td><%= image_tag u.avatar.thumb_sm.url, :class => "product-thumb img-responsive"%></td>
 				<td><%= u.fullname%></td>
 				<td><%= u.email %></td>
 				<td><%= u.phone %></td>

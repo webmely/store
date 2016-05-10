@@ -3,7 +3,7 @@
 <!--[if IE 9]>      <html class="ie ie9"> <![endif]-->
 <!--[if gt IE 9]><!-->  <html> <!--<![endif]-->
 <head>
-  <title>Test</title>
+  <title><%= content_for?(:title) ? content_for(:title) : "Demo website" %> | Demo website description</title>
 
     <!-- mobile settings -->
     <meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=0" />

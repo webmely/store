@@ -6,6 +6,7 @@ module Admin
 		end
 
 		def show
+			@user = User.find(params[:id])
 		end
 
 		def new
@@ -15,13 +16,11 @@ module Admin
 		def create
 			@user = User.new(safe_params)
 			@user.save
-			redirect_to users_path
-		end
-
-		def edit
+			redirect_to admin_users_path
 		end
 
 		def update
+			@user = User.find(params[:id])
 			@user.update(safe_params)
 			redirect_to :back
 		end

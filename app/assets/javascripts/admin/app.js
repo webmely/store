@@ -61,21 +61,21 @@
 		_placeholder();
 		_owl_carousel();
 		_panels();
+		_misc();
+		_charts(ajax);
+		_select2();
 		
 		/*
 		_popover();
 		_lightbox();
 		_scrollTo();
 		_toggle();
-		_charts(ajax);
 		_slimScroll();
 		_autosuggest();
 		_form();
-		_select2();
 		_stepper();
 		_pickers();
 		_editors();
-		_misc();
 		_afterResize(ajax);
 		_modalAutoLoad();
 		_toastr(false,false,false,false);
@@ -770,7 +770,7 @@
 		 **************************************************************** **/
 		if(jQuery(".sparkline").length > 0) {
 
-			loadScript(plugin_path + 'chart.sparkline/jquery.sparkline.min.js', function() {
+			//loadScript(plugin_path + 'chart.sparkline/jquery.sparkline.min.js', function() {
 
 				if(jQuery().sparkline) {
 
@@ -790,7 +790,7 @@
 
 				}
 			
-			});
+			//});
 
 		}
 
@@ -805,7 +805,7 @@
 		 **************************************************************** **/
 		if(jQuery(".easyPieChart").length > 0) {
 
-			loadScript(plugin_path + 'chart.easypiechart/jquery.easypiechart.min.js', function() {
+			//loadScript(plugin_path + 'chart.easypiechart/jquery.easypiechart.min.js', function() {
 
 				if(jQuery().easyPieChart) {
 
@@ -837,14 +837,14 @@
 				
 				}
 			
-			});
+			//});
 		
 		}
 
 
 
 		/** Knob
-		 **************************************************************** **/
+		 **************************************************************** **
 		if(jQuery("input.knob").length > 0) {
 
 			loadScript(plugin_path + 'chart.knob/dist/jquery.knob.min.js', function() {
@@ -863,6 +863,7 @@
 			});
 
 		}
+		*/
 
 	}
 
@@ -1061,13 +1062,13 @@
 		
 		if(_container.length > 0) {
 			
-			loadScript(plugin_path + 'select2/js/select2.full.min.js', function() {
+			//loadScript(plugin_path + 'select2/js/select2.full.min.js', function() {
 		
 				if(jQuery().select2) {
 					jQuery('select.select2').select2();
 				}
 
-			});
+			//});
 		}
 
 	}
@@ -1465,11 +1466,6 @@
 		/** Custom File Upload
 			<input class="custom-file-upload" type="file" id="file" name="myfiles[]" multiple />
 		 *********************** **/
-		var file_container = jQuery("input[type=file]");
-
-		if(file_container.length > 0) {
-			loadScript(plugin_path + 'custom.fle_upload.js');
-		}
 
 
 		/** Textarea Words Limit

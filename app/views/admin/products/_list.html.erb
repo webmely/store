@@ -5,16 +5,25 @@
 				<th>Products</th>
 				<th>Price</th>
 				<th>Ratings</th>
-				<th>Action</th>
 			</tr>
 		</thead>
 		<tbody>
 			<% @products.each do |p|%>
-			<tr>
+			<tr id="product-<%= p.id%>" class="product-item">
 				<td>
 					<%= image_tag p.thumbnail.thumb_xs.url, :class => "product-thumb img-responsive"%>
-					<strong><%= p.name%></strong>
-					<p><%= p.short_description%></p>
+					<div class="product-info">
+						<strong><%= p.name%></strong>
+						<p><%= p.short_description%></p>
+						<div class="product-action">					
+						<%= link_to edit_admin_product_path(p), class: "btn btn-default btn-xs", target: "_parent"  do%>
+							<i class="fa fa-pencil white"></i> Edit
+						<% end %>
+						<%= link_to admin_product_path(p), method: "DELETE", class: "btn btn-default btn-xs", target: "_parent"  do%>
+							<i class="fa fa-trash white"></i> Delete
+						<% end %>
+						</div>
+					</div>
 				</td>
 				<td>
 					<% unless p.price_current.present? %>
@@ -27,16 +36,9 @@
 					<% end%>
 				</td>
 				<td><div class="rating rating-0 size-13 width-100"></div></td>
-				<td>
-					<%= link_to edit_admin_product_path(p), class: "btn btn-default btn-xs", target: "_parent"  do%>
-						<i class="fa fa-edit white"></i> Edit
-					<% end %>
-					<%= link_to admin_product_path(p), method: "DELETE", class: "btn btn-default btn-xs", target: "_parent"  do%>
-						<i class="fa fa-times white"></i> Delete
-					<% end %>
-				</td>
 			</tr>
 			<%end%>
 		</tbody>
 	</table>
+	<%= paginate @products %>
 </div>

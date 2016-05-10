@@ -34,3 +34,10 @@ OrderStatus.create! id: 1, name: "In Progress"
 OrderStatus.create! id: 2, name: "Placed"
 OrderStatus.create! id: 3, name: "Shipped"
 OrderStatus.create! id: 4, name: "Cancelled"
+
+
+Category.delete_all
+Category.create! id: 1, name: "Test 1", description: "Desc 1"
+Category.create! id: 2, name: "Test 2", description: "Desc 2"
+Category.create! id: 3, name: "Test 3", description: "Desc 3"
+Category.create! id: 4, name: "Test 4", description: "Desc 4"

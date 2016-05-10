@@ -1,10 +1,10 @@
-<%= form_for(@product, :html => { :role => "form" }) do |f| %>
+<%= form_for([:admin, @product], :html => { :role => "form" }) do |f| %>
 <div class="row">
 	<div class="col-md-8">
 		<div id="panel-1" class="panel panel-default">
 			<div class="panel-heading">
 				<span class="title elipsis">
-					<strong>CLEAN TABLE</strong> <!-- panel title -->
+					<strong>Product</strong> <!-- panel title -->
 				</span>
 
 				<!-- right options -->
@@ -31,6 +31,18 @@
 							<label class="control-label">Price Current</label>
 							<%= f.text_field :price_current, class: "form-control", placeholder: "Price Current" %>
 						</div>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="control-label">Categories</label>
+					<div class="fancy-form fancy-form-select">
+						<select class="form-control select2" multiple="multiple">
+							<option value="1">Option 1</option>
+							<option value="2">option 2</option>
+							<option value="3">option 3</option>
+						</select>
+						<i class="fancy-arrow-double"></i>
 					</div>
 				</div>
 
@@ -82,7 +94,7 @@
 		<div id="submitdiv" class="panel panel-default">
 			<div class="panel-heading">
 				<span class="title elipsis">
-					<strong>Edit Product</strong> <!-- panel title -->
+					<strong>Save</strong> <!-- panel title -->
 				</span>
 
 				<!-- right options -->
@@ -95,7 +107,18 @@
 
 			<!-- panel content -->
 			<div class="panel-body">
-				Abc
+				<ul class="list-unstyled" style="margin-bottom: 0">
+					<% if @product.created_at?%>
+					<li class="text-gray">
+						<i class="fa fa-calendar"></i> Date Published: <%= @product.created_at.strftime("%B %d %Y, %H:%M:%S")%>
+					</li>
+					<% end %>
+					<% if @product.updated_at?%>
+					<li class="text-gray">
+						<i class="fa fa-calendar"></i> Last Update: <%= @product.updated_at.strftime("%B %d %Y, %H:%M:%S")%>
+					</li>
+					<% end %>
+				</ul>
 			</div>
 
 			<div class="panel-footer">
@@ -126,11 +149,15 @@
 
 			<!-- panel content -->
 			<div class="panel-body">
-				<div class="form-group">
+				<div class="form-group text-center">
 					<%= image_tag @product.thumbnail.thumb_sm.url, :class => "img-responsive"%>
 					<br/><br/>
-					<%= f.file_field :thumbnail, class: "custom-file-upload", "data-btn-text" => "Select a File"%>
-					<small class="text-muted block">Max file size: 10Mb (zip/pdf/jpg/png)</small>
+					<div class="fancy-file-upload">
+						<i class="fa fa-upload"></i>
+						<%= f.file_field :thumbnail, class: "form-control", "onchange" => "jQuery(this).next('input').val(this.value);"%>
+						<input type="text" class="form-control" placeholder="no file selected" readonly="" />
+						<span class="button">Choose File</span>
+					</div>
 				</div>
 			</div>
 		</div>
