@@ -1,284 +1,36 @@
-			<!-- FEATURED -->
-			<section>
-				<div class="container">
+	<% @products.each do |p|%>
+	<!-- item -->
+	<div class="shop-item nomargin">
+		<div class="thumbnail">
+			<%= link_to product_path(p), class: "shop-item-image", target: "_parent" do
+				image_tag p.thumbnail.thumb_sm.url, :class => "img-responsive", :alt => p.name
+			end %>
+		</div>
 
-					<h2 class="owl-featured noborder"><strong>FEATURED</strong> PRODUCTS</h2>
-					<div class="owl-carousel featured nomargin owl-padding-10" data-plugin-options='{"loop":true,"singleItem": false, "items": "4", "stopOnHover":false, "autoPlay":4000, "autoHeight": false, "navigation": true, "pagination": false}'>
+		<div class="shop-item-summary text-center">
+			<h2><%= p.name %></h2>
+			<div class="shop-item-rating-line">
+				<div class="rating rating-4 size-13"><!-- rating-0 ... rating-5 --></div>
+			</div>
+			<div class="shop-item-price">
+				<% unless p.price_current.present? %>
+				<%= number_to_currency(p.price)%>
+				<% else%>
+				<span class="line-through">
+					<%= number_to_currency(p.price)%>
+				</span>
+				<%= number_to_currency(p.price_current)%>
+				<% end%>
+			</div>
+		</div>
 
-						<!-- item -->
-						<div class="shop-item nomargin">
-
-							<div class="thumbnail">
-								<!-- product image(s) -->
-								<%= link_to product_path(1), class: "shop-item-image", target: "_parent"  do%>
-									<img class="img-responsive" src="http://localhost:3000/assets/demo/shop/products/300x450/p13.jpg" alt="shop first image" />
-									<img class="img-responsive" src="http://localhost:3000/assets/demo/shop/products/300x450/p14.jpg" alt="shop hover image" />
-								<% end %>
-								<!-- /product image(s) -->
-
-							</div>
-							
-							<div class="shop-item-summary text-center">
-								<h2>Cotton 100% - Pink Shirt</h2>
-								
-								<!-- rating -->
-								<div class="shop-item-rating-line">
-									<div class="rating rating-4 size-13"><!-- rating-0 ... rating-5 --></div>
-								</div>
-								<!-- /rating -->
-
-								<!-- price -->
-								<div class="shop-item-price">
-									<span class="line-through">$98.00</span>
-									$78.00
-								</div>
-								<!-- /price -->
-							</div>
-
-								<!-- buttons -->
-								<div class="shop-item-buttons text-center">
-									<%= link_to cart_path, class: "btn btn-default", target: "_parent" do %>
-										<i class="fa fa-cart-plus"></i> Add to Cart
-									<% end %>
-								</div>
-								<!-- /buttons -->
-						</div>
-						<!-- /item -->
-
-						<!-- item -->
-						<div class="shop-item nomargin">
-
-							<div class="thumbnail">
-								<!-- product image(s) -->
-								<%= link_to product_path(1), class: "shop-item-image", target: "_parent"  do%>
-									<!-- CAROUSEL -->
-									<div class="owl-carousel owl-padding-0 nomargin" data-plugin-options='{"singleItem": true, "autoPlay": 3000, "navigation": false, "pagination": false, "transitionStyle":"fadeUp"}'>
-										<img class="img-responsive" src="http://localhost:3000/assets/demo/shop/products/300x450/p5.jpg" alt="">
-										<img class="img-responsive" src="http://localhost:3000/assets/demo/shop/products/300x450/p1.jpg" alt="">
-									</div>
-									<!-- /CAROUSEL -->
-								<% end %>
-								<!-- /product image(s) -->
-							</div>
-							
-							<div class="shop-item-summary text-center">
-								<h2>Pink Dress 100% Cotton</h2>
-								
-								<!-- rating -->
-								<div class="shop-item-rating-line">
-									<div class="rating rating-4 size-13"><!-- rating-0 ... rating-5 --></div>
-								</div>
-								<!-- /rating -->
-
-								<!-- price -->
-								<div class="shop-item-price">
-									$44.00
-								</div>
-								<!-- /price -->
-							</div>
-
-								<!-- buttons -->
-								<div class="shop-item-buttons text-center">
-									<%= link_to cart_path, class: "btn btn-default", target: "_parent" do %>
-										<i class="fa fa-cart-plus"></i> Add to Cart
-									<% end %>
-								</div>
-								<!-- /buttons -->
-						</div>
-						<!-- /item -->
-
-						<!-- item -->
-						<div class="shop-item nomargin">
-
-							<div class="thumbnail">
-								<!-- product image(s) -->
-								<%= link_to product_path(1), class: "shop-item-image", target: "_parent"  do%>
-									<img class="img-responsive" src="http://localhost:3000/assets/demo/shop/products/300x450/p2.jpg" alt="shop first image" />
-									<img class="img-responsive" src="http://localhost:3000/assets/demo/shop/products/300x450/p12.jpg" alt="shop hover image" />
-								<% end %>
-								<!-- /product image(s) -->
-
-							</div>
-							
-							<div class="shop-item-summary text-center">
-								<h2>Black Fashion Hat</h2>
-								
-								<!-- rating -->
-								<div class="shop-item-rating-line">
-									<div class="rating rating-4 size-13"><!-- rating-0 ... rating-5 --></div>
-								</div>
-								<!-- /rating -->
-
-								<!-- price -->
-								<div class="shop-item-price">
-									<span class="line-through">$77.00</span>
-									$65.00
-								</div>
-								<!-- /price -->
-							</div>
-
-								<!-- buttons -->
-								<div class="shop-item-buttons text-center">
-									<%= link_to cart_path, class: "btn btn-default", target: "_parent" do %>
-										<i class="fa fa-cart-plus"></i> Add to Cart
-									<% end %>
-								</div>
-								<!-- /buttons -->
-						</div>
-						<!-- /item -->
-
-						<!-- item -->
-						<div class="shop-item nomargin">
-
-							<div class="thumbnail">
-								<!-- product image(s) -->
-								<%= link_to product_path(1), class: "shop-item-image", target: "_parent"  do%>
-									<img class="img-responsive" src="http://localhost:3000/assets/demo/shop/products/300x450/p8.jpg" alt="shop first image" />
-								<% end %>
-								<!-- /product image(s) -->
-							</div>
-							
-							<div class="shop-item-summary text-center">
-								<h2>Beach Black Lady Suit</h2>
-								
-								<!-- rating -->
-								<div class="shop-item-rating-line">
-									<div class="rating rating-4 size-13"><!-- rating-0 ... rating-5 --></div>
-								</div>
-								<!-- /rating -->
-
-								<!-- price -->
-								<div class="shop-item-price">
-									$56.00
-								</div>
-								<!-- /price -->
-							</div>
-
-								<!-- buttons -->
-								<div class="shop-item-buttons text-center">
-									<%= link_to cart_path, class: "btn btn-default", target: "_parent" do %>
-										<i class="fa fa-cart-plus"></i> Add to Cart
-									<% end %>
-								</div>
-								<!-- /buttons -->
-						</div>
-						<!-- /item -->
-
-						<!-- item -->
-						<div class="shop-item nomargin">
-
-							<div class="thumbnail">
-								<!-- product image(s) -->
-								<%= link_to product_path(1), class: "shop-item-image", target: "_parent"  do%>
-									<img class="img-responsive" src="http://localhost:3000/assets/demo/shop/products/300x450/p7.jpg" alt="shop first image" />
-								<% end %>
-								<!-- /product image(s) -->
-							</div>
-							
-							<div class="shop-item-summary text-center">
-								<h2>Town Dress - Black</h2>
-								
-								<!-- rating -->
-								<div class="shop-item-rating-line">
-									<div class="rating rating-4 size-13"><!-- rating-0 ... rating-5 --></div>
-								</div>
-								<!-- /rating -->
-
-								<!-- price -->
-								<div class="shop-item-price">
-									$154.00
-								</div>
-								<!-- /price -->
-							</div>
-
-								<!-- buttons -->
-								<div class="shop-item-buttons text-center">
-									<%= link_to cart_path, class: "btn btn-default", target: "_parent" do %>
-										<i class="fa fa-cart-plus"></i> Add to Cart
-									<% end %>
-								</div>
-								<!-- /buttons -->
-						</div>
-						<!-- /item -->
-
-						<!-- item -->
-						<div class="shop-item nomargin">
-
-							<div class="thumbnail">
-								<!-- product image(s) -->
-								<%= link_to product_path(1), class: "shop-item-image", target: "_parent"  do%>
-									<img class="img-responsive" src="http://localhost:3000/assets/demo/shop/products/300x450/p6.jpg" alt="shop first image" />
-									<img class="img-responsive" src="http://localhost:3000/assets/demo/shop/products/300x450/p14.jpg" alt="shop hover image" />
-								<% end %>
-								<!-- /product image(s) -->
-							</div>
-							
-							<div class="shop-item-summary text-center">
-								<h2>Chick Lady Fashion</h2>
-								
-								<!-- rating -->
-								<div class="shop-item-rating-line">
-									<div class="rating rating-4 size-11"><!-- rating-0 ... rating-5 --></div>
-								</div>
-								<!-- /rating -->
-
-								<!-- price -->
-								<div class="shop-item-price">
-									$167.00
-								</div>
-								<!-- /price -->
-							</div>
-
-								<!-- buttons -->
-								<div class="shop-item-buttons text-center">
-									<%= link_to cart_path, class: "btn btn-default", target: "_parent" do %>
-										<i class="fa fa-cart-plus"></i> Add to Cart
-									<% end %>
-								</div>
-								<!-- /buttons -->
-						</div>
-						<!-- /item -->
-
-						<!-- item -->
-						<div class="shop-item nomargin">
-
-							<div class="thumbnail">
-								<!-- product image(s) -->
-								<%= link_to product_path(1), class: "shop-item-image", target: "_parent"  do%>
-									<img class="img-responsive" src="http://localhost:3000/assets/demo/shop/products/300x450/p11.jpg" alt="shop hover image" />
-									<img class="img-responsive" src="http://localhost:3000/assets/demo/shop/products/300x450/p3.jpg" alt="shop first image" />
-								<% end %>
-								<!-- /product image(s) -->
-							</div>
-							
-							<div class="shop-item-summary text-center">
-								<h2>Black Long Lady Shirt</h2>
-								
-								<!-- rating -->
-								<div class="shop-item-rating-line">
-									<div class="rating rating-0 size-13"><!-- rating-0 ... rating-5 --></div>
-								</div>
-								<!-- /rating -->
-
-								<!-- price -->
-								<div class="shop-item-price">
-									$128.00
-								</div>
-								<!-- /price -->
-							</div>
-
-								<!-- buttons -->
-								<div class="shop-item-buttons text-center">
-									<%= link_to cart_path, class: "btn btn-default", target: "_parent" do %>
-										<i class="fa fa-cart-plus"></i> Add to Cart
-									<% end %>
-								</div>
-								<!-- /buttons -->
-						</div>
-						<!-- /item -->
-
-					</div>
-
-				</div>
-			</section>
-			<!-- /FEATURED -->
+		<!-- buttons -->
+		<div class="shop-item-buttons text-center">
+			<%= link_to cart_path, class: "btn btn-default", target: "_parent" do %>
+			<i class="fa fa-cart-plus"></i> Add to Cart
+			<% end %>
+		</div>
+		<!-- /buttons -->
+	</div>
+	<!-- /item -->
+	<% end %>

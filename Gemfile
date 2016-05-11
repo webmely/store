@@ -13,6 +13,7 @@ gem 'owlcarousel-rails'
 gem "gretel"
 gem "wysiwyg-rails"
 gem 'kaminari'
+gem 'cancancan', '~> 1.10'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets

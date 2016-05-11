@@ -4,7 +4,8 @@ class ProductsController < ApplicationController
     @products = Product.all
   end
 
-  def show  	
+  def show 
+    @products = Product.all
   end
 
   private

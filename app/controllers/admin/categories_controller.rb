@@ -20,7 +20,6 @@ module Admin
 		end
 
 		def update			
-			@category = Category.find(params[:id])
 			@category.update(safe_params)
 			redirect_to :back
 		end
@@ -36,7 +35,7 @@ module Admin
 		end
 
 		def safe_params
-			params.require(:category).permit(:name, :parent_id, :description)
+			params.require(:category).permit(:name, :parent_id, :description, :count)
 		end
 	end
 end

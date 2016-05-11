@@ -37,11 +37,11 @@
 				<div class="form-group">
 					<label class="control-label">Categories</label>
 					<div class="fancy-form fancy-form-select">
-						<select class="form-control select2" multiple="multiple">
-							<option value="1">Option 1</option>
-							<option value="2">option 2</option>
-							<option value="3">option 3</option>
-						</select>
+						<%= unless @categories.blank? 
+							f.select :categories, Category.all.collect {|x| [x.name, x.id]}, {:selected => @categories.map(&:id)}, {:class => "form-control select2", :multiple => true} 
+							else 
+							f.select :categories, Category.all.collect {|x| [x.name, x.id]}, {}, {:class => "form-control select2", :multiple => true} 
+							end %>
 						<i class="fancy-arrow-double"></i>
 					</div>
 				</div>

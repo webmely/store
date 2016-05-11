@@ -7,6 +7,7 @@ module Admin
 
 		def show 
 			@product = Product.find(params[:id])
+			@categories = @product.categories
 		end
 
 		def new
@@ -15,13 +16,54 @@ module Admin
 
 		def create
 			@product = Product.new(safe_params)
-			@product.save
-			redirect_to admin_products_path
+			
+			if @product.save
+				
+				product = params[:product]
+
+				product[:categories].each do |c|
+					unless c.blank?
+						c = CategoriesProduct.new(:category_id => c, :product_id => @product.id)
+						if c.valid?
+							c.save
+						else
+							@errors += c.errors
+						end
+					end
+				end
+				
+			else
+				render "new"
+			end
+			redirect_to edit_admin_product_path(@product)
+		end
+
+		def edit
+			@categories = @product.categories			
 		end
 
 		def update			
 			@product = Product.find(params[:id])
-			@product.update(safe_params)
+			@categories = @product.categories
+
+			if @product.update(safe_params)
+				product = params[:product]
+
+				product[:categories].each do |c|
+					unless c.blank?
+						c = CategoriesProduct.new(:category_id => c, :product_id => @product.id)
+						if c.valid?
+							c.save
+						else
+							@errors += c.errors
+						end
+					end
+				end
+				
+			else
+				render "new"
+			end
+
 			redirect_to :back
 		end
 
