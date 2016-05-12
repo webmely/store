@@ -5,4 +5,12 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   mount_uploader :avatar, AvatarUploader
+
+  def admin?
+  	role_id == 1
+  end
+
+  def seller?
+  	role_id == 2
+  end
 end

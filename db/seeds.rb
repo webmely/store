@@ -5,16 +5,12 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-user = User.new
-user.email = "test@gmail.com"
-user.password = "123456789"
-user.password_confirmation = "123456789"
-user.fullname = "Test User"
-user.address = "Webmely.com"
-user.phone = "01668854156"
-user.website = "http://webmely.com"
-user.biographical = "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-user.save
+
+User.delete_all
+User.create! id: 1, email: "admin@gmail.com", password: 123456789, fullname: "Admin", address: "Webmely.com", phone: "01668854156", website: "http://webmely.com", biographical: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", role_id: 1
+User.create! id: 2, email: "seller@gmail.com", password: 123456789, fullname: "Seller", address: "Webmely.com", phone: "01668854156", website: "http://webmely.com", biographical: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", role_id: 2
+User.create! id: 3, email: "user@gmail.com", password: 123456789, fullname: "User", address: "Webmely.com", phone: "01668854156", website: "http://webmely.com", biographical: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", role_id: 3
+
 
 Product.delete_all
 Product.create! id: 1, name: "Cotton 100% - Pink Shirt", price: 98, price_current: 78, quantity: 20, description: "<p>1. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Aliquam fermentum commodo magna, id pretium nisi elementum at. Nulla molestie, ligula in fringilla rhoncus, risus leo dictum est, nec egestas nunc sem tincidunt turpis. Sed posuere consectetur est at lobortis.</p> <p>Donec blandit ultrices condimentum. Aliquam fermentum commodo magna, id pretium nisi elementum at. Nulla molestie, ligula in fringilla rhoncus, risus leo dictum est, nec egestas nunc sem tincidunt turpis. Sed posuere consectetur est at lobortis.</p>", short_description: "1. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", active: true

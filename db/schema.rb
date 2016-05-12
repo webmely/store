@@ -85,6 +85,7 @@ ActiveRecord::Schema.define(version: 20160511024106) do
     t.string   "avatar",                 limit: 255
     t.string   "website",                limit: 255
     t.text     "biographical",           limit: 65535
+    t.integer  "role_id",                limit: 4
     t.string   "reset_password_token",   limit: 255
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"

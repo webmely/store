@@ -1,6 +1,7 @@
 module Admin
 	class UsersController < BaseController
 		before_action :set_user, only:[:show, :edit, :update, :destroy]
+		
 		def index
 			@users = User.order("created_at DESC")
 		end
@@ -30,13 +31,18 @@ module Admin
 			redirect_to :back
 		end
 
+		def role_selected(id)
+			@user = User.find(params[:id])
+			return "selected" if @user.role_id?(id)
+		end
+
 		private
 		def set_user
-			@user = User.find(params[:id])
+			@user = current_user
 		end
 
 		def safe_params
-			params.require(:user).permit(:phone, :fullname, :email, :password, :avatar, :address, :biographical, :active)
+			params.require(:user).permit(:phone, :fullname, :email, :password, :avatar, :address, :biographical, :active, :role_id)
 		end
 	end
 end

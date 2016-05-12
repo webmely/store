@@ -61,6 +61,10 @@
 					<label class="control-label">Mail</label>
 					<%= f.email_field :email, class: "form-control", placeholder: "Mail Address" %>
 				</div>
+				<div class="form-group">
+					<label>Role</label>
+					<%= f.select :role_id, [ 1,2,3 ] ,{ :include_blank => "--- Select ---", :selected => f.object.role_id}, class: "form-control pointer" %>
+				</div>
 			</div>
 		</div>
 	</div>

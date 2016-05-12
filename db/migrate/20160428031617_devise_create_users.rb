@@ -10,6 +10,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.string :avatar
       t.string :website
       t.text :biographical
+      t.integer :role_id
 
       ## Recoverable
       t.string   :reset_password_token
