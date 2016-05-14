@@ -10,6 +10,10 @@ module Admin
 			@user = User.find(params[:id])
 		end
 
+		def edit
+			@user = User.find(params[:id])
+		end
+
 		def new
 			@user = User.new
 		end
@@ -29,11 +33,6 @@ module Admin
 		def destroy
 			@user.destroy
 			redirect_to :back
-		end
-
-		def role_selected(id)
-			@user = User.find(params[:id])
-			return "selected" if @user.role_id?(id)
 		end
 
 		private

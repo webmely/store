@@ -1,7 +1,6 @@
             <ul class="nav nav-tabs nav-top-border">
               <li class="active"><a href="#info" data-toggle="tab">Personal Info</a></li>
               <li><a href="#avatar" data-toggle="tab">Avatar</a></li>
-              <li><a href="#password" data-toggle="tab">Password</a></li>
             </ul>
 
             <div class="tab-content margin-top-20">
@@ -25,6 +24,15 @@
                     <label class="control-label">Mobile Number</label>
                     <%= f.text_field :phone, class: "form-control", placeholder: "Phone" %>
                   </div>
+                  <div class="form-group">
+                    <label class="control-label">Website</label>
+                    <%= f.text_field :website, class: "form-control", placeholder: "Website" %>
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label">Biographical</label>
+                    <%= f.text_area :biographical, rows: 10, class: "form-control", placeholder: "Biographical" %>
+                  </div>
+                  
                   <div class="margiv-top10">
                     <%= button_tag(type: 'submit', class: "btn btn-primary") do %>
                       <i class="fa fa-check"></i> Save Changes
@@ -81,28 +89,4 @@
                 <%end%>
               </div>
               <!-- /AVATAR TAB -->
-
-              <!-- PASSWORD TAB -->
-              <div class="tab-pane fade" id="password">
-                <form action="#" method="post">
-                  <div class="form-group">
-                    <label class="control-label">Current Password</label>
-                    <input type="password" class="form-control">
-                  </div>
-                  <div class="form-group">
-                    <label class="control-label">New Password</label>
-                    <input type="password" class="form-control">
-                  </div>
-                  <div class="form-group">
-                    <label class="control-label">Re-type New Password</label>
-                    <input type="password" class="form-control">
-                  </div>
-
-                  <div class="margiv-top10">
-                    <a href="#" class="btn btn-primary"><i class="fa fa-check"></i> Change Password</a>
-                    <a href="#" class="btn btn-default">Cancel </a>
-                  </div>
-                </form>
-              </div>
-              <!-- /PASSWORD TAB -->
             </div>

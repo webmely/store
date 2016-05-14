@@ -35,7 +35,7 @@ OrderStatus.create! id: 4, name: "Cancelled"
 
 
 Category.delete_all
-Category.create! id: 1, name: "Category 1", description: "Category 1"
-Category.create! id: 2, name: "Category 2", parent_id: 1, description: "Category 2"
-Category.create! id: 3, name: "Category 3", description: "Category 3"
-Category.create! id: 4, name: "Category 4", description: "Category 4"
+Category.create! id: 1, name: "Category 1", description: "1. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+Category.create! id: 2, name: "Category 2", parent_id: 1, description: "2. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+Category.create! id: 3, name: "Category 3", description: "3. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+Category.create! id: 4, name: "Category 4", description: "4. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."

@@ -9,15 +9,26 @@
 			<li>
 				<a class="dropdown-toggle no-text-underline" data-toggle="dropdown" href="#"><i class="fa fa-user hidden-xs"></i> MY ACCOUNT</a>
 				<ul class="dropdown-menu pull-right">
+					<!--
 					<li><a tabindex="-1" href="#"><i class="fa fa-history"></i> ORDER HISTORY</a></li>
 					<li class="divider"></li>
 					<li><a tabindex="-1" href="#"><i class="fa fa-bookmark"></i> MY WISHLIST</a></li>
 					
 					<li><a tabindex="-1" href="#"><i class="fa fa-edit"></i> MY REVIEWS</a></li>
+					-->
 					<li>
 						<%= link_to edit_user_path(current_user), "tabindex" => "-1", target: "_parent"  do%>
-							<i class="fa fa-cog"></i> MY SETTINGS
+							<i class="fa fa-info-circle"></i> MY PROFILE
 						<% end%>
+					</li>
+					<% if current_user.admin? || current_user.seller? %>
+					<li class="divider"></li>
+					<li>
+						<%= link_to admin_root_path, "tabindex" => "-1", target: "_parent"  do%>
+							<i class="fa fa-tachometer"></i> ADMIN PAGE
+						<% end%>
+					</li>
+					<% end %>
 					<li class="divider"></li>
 					<li>
 						<%= link_to destroy_user_session_path, :method => "delete", "data-confirm" => "Are you sure?", "tabindex" => "-1"  do%>

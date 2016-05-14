@@ -14,6 +14,10 @@ module Admin
 			@product = Product.new
 		end
 
+		def edit
+			@categories = @product.categories			
+		end
+
 		def create
 			@product = Product.new(safe_params)
 			
@@ -36,10 +40,6 @@ module Admin
 				render "new"
 			end
 			redirect_to edit_admin_product_path(@product)
-		end
-
-		def edit
-			@categories = @product.categories			
 		end
 
 		def update			

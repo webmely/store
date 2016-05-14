@@ -14,7 +14,4 @@ Rails.application.routes.draw do
 		resources :users
 		resources :categories
 	end
-	# devise_scope :users do
-	# 	# get '/users/sign_out' => 'devise/sessions#destroy'
-	# end
 end
