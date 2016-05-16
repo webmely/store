@@ -1,0 +1,40 @@
+= render "slider_home"
+
+
+<!-- INFO BAR -->
+%section.info-bar.info-bar-dark
+	.container
+		.row
+			.col-sm-4
+				%i.glyphicon.glyphicon-globe
+				%h3 FREE SHIPPING &amp; RETURN
+				%p Free shipping on all orders over $99.
+			.col-sm-4
+				%i.glyphicon.glyphicon-usd
+				%h3 MONEY BACK GUARANTEE
+				%p 100% money back guarantee.
+			.col-sm-4
+				%i.glyphicon.glyphicon-flag
+				%h3 ONLINE SUPPORT 24/7
+				%p Lorem ipsum dolor sit amet.
+<!-- /INFO BAR -->
+
+<!-- FEATURED -->
+%section
+	.container
+		%h2.owl-featured.noborder
+			%strong FEATURED
+			PRODUCTS
+		.owl-carousel.featured.nomargin.owl-padding-10{'data-plugin-options' => '{"loop":true,"singleItem": false, "items": "4", "stopOnHover":false, "autoPlay":4000, "autoHeight": false, "navigation": true, "pagination": false}'}
+			= render "shared/list_products_slider"
+<!-- /FEATURED -->
+
+<!-- NEW PRODUCTS -->
+%section
+	.container
+		.heading-title.heading-dotted
+			%h2.size-20 WOMEN DRESSES
+		= render "shared/list_products_sm"
+<!-- NEW PRODUCTS -->
+
+= render "brands"

@@ -9,32 +9,32 @@
 			</li>
 		<%end%>
 		<% if current_user.admin? || current_user.seller?%>
-		<li class="<%= add_class_cps([admin_products_path,new_admin_product_path,admin_categories_path], 'active')%>">
+		<li class="<%= add_class_cps([admin_products_path,new_admin_product_path,admin_categories_path], 'active')%> <%= @is_product_update? 'active' : '' %> <%= @is_cat_update? 'active' : '' %>">
 				<a href="#">
 					<i class="fa fa-menu-arrow pull-right"></i>
 					<i class="main-icon fa fa-cubes"></i> <span>Products</span>
 				</a>
 				<ul>
-					<li class="<%=add_class_cp(admin_products_path,'active')%>">
+					<li class="<%=add_class_cp(admin_products_path,'active')%> <%= @is_product_update? 'active' : '' %>">
 						<%= link_to "All Products", admin_products_path, target: "_parent"%>
 					</li>
 					<li class="<%=add_class_cp(new_admin_product_path,'active')%>">
 						<%= link_to "New Product", new_admin_product_path, target: "_parent"%>
 					</li>
-					<li class="<%=add_class_cp(admin_categories_path,'active')%>">
+					<li class="<%=add_class_cp(admin_categories_path,'active')%> <%= @is_cat_update? 'active' : '' %>">
 						<%= link_to "Categories", admin_categories_path, target: "_parent"%>
 					</li>
 				</ul>
 			</li>
 			<%end%>
 			<% if current_user.admin? || current_user.seller?%>
-			<li class="<%= add_class_cps([admin_users_path,new_admin_user_path,edit_admin_user_path(current_user)], 'active')%>">
+			<li class="<%= add_class_cps([admin_users_path,new_admin_user_path,edit_admin_user_path(current_user)], 'active')%> <%= @is_user_update? 'active' : '' %>">
 				<a href="#">
 					<i class="fa fa-menu-arrow pull-right"></i>
 					<i class="main-icon fa fa-users"></i> <span>Users</span>
 				</a>
 				<ul>					
-					<li class="<%=add_class_cp(admin_users_path,'active')%>">
+					<li class="<%=add_class_cp(admin_users_path,'active')%> <%= (@is_user_update && @user != current_user)? 'active' : '' %>">
 						<%= link_to "All Users", admin_users_path, target: "_parent"%>
 					</li>
 					<li class="<%=add_class_cp(new_admin_user_path,'active')%>">

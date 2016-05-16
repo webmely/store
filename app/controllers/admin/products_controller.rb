@@ -1,6 +1,8 @@
 module Admin
 	class ProductsController < BaseController
 		before_action :set_product, only:[:show, :edit, :update, :destroy]
+		@is_product_update = false
+
 		def index
 			@products = Product.order("created_at DESC").page(params[:page]).per(10)
 		end
@@ -15,6 +17,7 @@ module Admin
 		end
 
 		def edit
+			@is_product_update = true
 			@categories = @product.categories			
 		end
 

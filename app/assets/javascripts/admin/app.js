@@ -89,7 +89,7 @@
 
         /** Hold dropdown on click  **/
         jQuery('body').on('click', '.dropdown-menu.hold-on-click', function (e) {
-            e.stopPropagation();
+            //e.stopPropagation();
         });
 	}
 

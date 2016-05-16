@@ -1,12 +1,19 @@
 module Admin
 	class CategoriesController < BaseController
 		before_action :set_category, only:[:show, :edit, :update, :destroy]
+		@is_cat_update = false
+
 		def index
 			@categories = Category.all
 			@category = Category.new
 		end
 
 		def show 
+			@category = Category.find(params[:id])
+		end
+
+		def edit
+			@is_cat_update = true
 			@category = Category.find(params[:id])
 		end
 

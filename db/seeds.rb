@@ -39,3 +39,21 @@ Category.create! id: 1, name: "Category 1", description: "1. Duis aute irure dol
 Category.create! id: 2, name: "Category 2", parent_id: 1, description: "2. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
 Category.create! id: 3, name: "Category 3", description: "3. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
 Category.create! id: 4, name: "Category 4", description: "4. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+
+
+CategoriesProduct.delete_all
+CategoriesProduct.create! id: 1, category_id: 1, product_id: 1
+CategoriesProduct.create! id: 2, category_id: 3, product_id: 1
+CategoriesProduct.create! id: 3, category_id: 1, product_id: 2
+CategoriesProduct.create! id: 4, category_id: 2, product_id: 3
+CategoriesProduct.create! id: 5, category_id: 3, product_id: 4
+CategoriesProduct.create! id: 6, category_id: 2, product_id: 4
+CategoriesProduct.create! id: 7, category_id: 1, product_id: 4
+CategoriesProduct.create! id: 8, category_id: 2, product_id: 5
+CategoriesProduct.create! id: 9, category_id: 3, product_id: 6
+CategoriesProduct.create! id: 10, category_id: 2, product_id: 7
+CategoriesProduct.create! id: 11, category_id: 3, product_id: 8
+CategoriesProduct.create! id: 12, category_id: 2, product_id: 9
+CategoriesProduct.create! id: 13, category_id: 1, product_id: 10
+CategoriesProduct.create! id: 14, category_id: 2, product_id: 11
+CategoriesProduct.create! id: 15, category_id: 3, product_id: 12

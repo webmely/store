@@ -1,6 +1,8 @@
 module Admin
 	class UsersController < BaseController
 		before_action :set_user, only:[:show, :edit, :update, :destroy]
+
+		@is_user_update = false
 		
 		def index
 			@users = User.order("created_at DESC")
@@ -11,6 +13,7 @@ module Admin
 		end
 
 		def edit
+			@is_user_update = true
 			@user = User.find(params[:id])
 		end
 

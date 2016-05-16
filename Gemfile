@@ -14,6 +14,7 @@ gem "gretel"
 gem "wysiwyg-rails"
 gem 'kaminari'
 gem 'cancancan', '~> 1.10'
+gem "haml-rails", "~> 0.9"
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
