@@ -1,3 +1,43 @@
-<div class="jumbotron">
-	
-</div>
+<!-- -->
+<section>
+  <div class="container">
+
+    <h4> Your Order</h4>
+    <div class="table-responsive">
+      <table class="table table-bordered table-vertical-middle">
+        <thead>
+          <tr>
+            <th class="width-30">#ID</th>
+            <th>Create at</th>
+            <th>SubTotal</th>
+            <th>Discount</th>
+            <th>Shipping</th>
+            <th>Total</th>
+            <th>Status</th>
+            <th style="width: 80px;"></th>
+          </tr>
+        </thead>
+        <tbody>
+        <% @orders.each do |p|%>
+          <tr>
+            <th><%= p.id%></th>
+            <td><%= p.created_at.strftime("%B %d %Y, %H:%M:%S")%></td>
+            <td><%= number_to_currency(p.subtotal)%></td>
+            <td><%= number_to_currency(p.discount)%></td>
+            <td><%= number_to_currency(p.shipping)%></td>
+            <td><%= number_to_currency(p.total)%></td>
+            <td><span class="label label-success"><%= OrderStatus.find(p.order_status_id).name %> </span></td>
+            <td>
+              <%= link_to order_path(p), class: "btn btn-default btn-xs", target: "_parent"  do%>
+                <i class="fa fa-location-arrow"></i> View
+              <% end %>
+            </td>
+          </tr>
+        <% end%>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+

@@ -110,6 +110,7 @@
 
           <hr />
 
+          <%=f.hidden_field :user_id, value: current_user.id%>
           <%=f.hidden_field :subtotal, value: subtotal%>
           <%=f.hidden_field :discount, value: discount%>
           <%=f.hidden_field :shipping, value: shipping%>

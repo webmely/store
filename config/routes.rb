@@ -5,9 +5,6 @@ Rails.application.routes.draw do
 	resources :users
 	resources :products
 
-	resources :orders ,only: [:success, :create, :new, :show]
-	get 'orders/index'
-
 	get 'cart/index'
 	resources :cart do
 		collection do
@@ -17,7 +14,7 @@ Rails.application.routes.draw do
 		end
 	end
 
-	resources :orders ,only: [:success, :create, :new, :show]
+	resources :orders
 
 	scope module: 'admin' ,as: 'admin', :path => 'admin' do
 		root 'dashboard#index'

@@ -11,6 +11,7 @@ class CreateOrders < ActiveRecord::Migration
       t.string :reciver_address
       t.text :note
       t.references :order_status, index: true, foreign_key: true
+      t.references :user, index: true, foreign_key: true
 
       t.timestamps null: false
     end

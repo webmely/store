@@ -1,9 +1,11 @@
 class OrdersController < ApplicationController
   def index
+    @orders = Order.where(user_id: current_user.id).order("id DESC").page(params[:page]).per(10)
   end
 
   def show
-    @order = Order.where(user_id: current_user.id).order("id DESC").page(params[:page]).per(10)
+    @order = Order.find(params[:id])
+    @order_items = @order.order_items
   end
 
   def new
@@ -35,16 +37,12 @@ class OrdersController < ApplicationController
       end
       session["cart"] = []
       render 'success'
-
-    else
-      render 'index'
     end
-
   end
 
   private
 
   def order_params
-    params.require(:order).permit(:reciver_fullname, :reciver_email, :reciver_phone, :reciver_address, :subtotal, :discount, :shipping, :total, :note)
+    params.require(:order).permit(:user_id, :reciver_fullname, :reciver_email, :reciver_phone, :reciver_address, :subtotal, :discount, :shipping, :total, :note)
   end
 end

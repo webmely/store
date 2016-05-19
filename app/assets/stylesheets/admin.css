@@ -22,7 +22,6 @@
  *= require bootstrap3-editable/bootstrap-editable
  *
  *= require_tree ./admin
- *= require_tree ./plugins
  *= require_self
  */
 
