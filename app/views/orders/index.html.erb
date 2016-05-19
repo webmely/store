@@ -26,7 +26,7 @@
             <td><%= number_to_currency(p.discount)%></td>
             <td><%= number_to_currency(p.shipping)%></td>
             <td><%= number_to_currency(p.total)%></td>
-            <td><span class="label label-success"><%= OrderStatus.find(p.order_status_id).name %> </span></td>
+            <td><span class="label label-success"><%= p.name %> </span></td>
             <td>
               <%= link_to order_path(p), class: "btn btn-default btn-xs", target: "_parent"  do%>
                 <i class="fa fa-location-arrow"></i> View
@@ -39,5 +39,3 @@
     </div>
   </div>
 </section>
-
-
