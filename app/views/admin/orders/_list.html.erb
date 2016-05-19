@@ -1,0 +1,82 @@
+<div class="list-products table-responsive">
+	<table class="table table-bordered table-vertical-middle nomargin">
+		<thead>
+			<tr>
+				<th>#ID</th>
+				<th>Create at</th>
+				<th>Customer</th>
+				<th>SubTotal</th>
+				<th>Discount</th>
+				<th>Shipping</th>
+				<th>Total</th>
+				<th>Status</th>
+				<th style="width: 80px;"></th>
+			</tr>
+		</thead>
+		<tbody>
+			<% @orders.each do |p|%>
+			<tr id="order-<%= p.id%>" class="product-item">
+				<th><%= p.id%></th>
+				<td><%= p.created_at.strftime("%B %d %Y, %H:%M:%S")%></td>
+				<td><%= p.reciver_fullname%></td>
+				<td><%= number_to_currency(p.subtotal)%></td>
+				<td><%= number_to_currency(p.discount)%></td>
+				<td><%= number_to_currency(p.shipping)%></td>
+				<td><%= number_to_currency(p.total)%></td>
+				<td><a href="#" id="<%= p.id%>" class="order_status" data-type="select" data-pk="1" data-value="<%= p.order_status_id%>" data-title="Order Status"></a></td>
+				<td>
+					<%= link_to admin_order_path(p), class: "btn btn-default btn-xs", target: "_parent"  do%>
+						<i class="fa fa-location-arrow"></i> View
+					<% end %>
+				</td>
+			</tr>
+			<%end%>
+		</tbody>
+	</table>
+	<%= paginate @orders %>
+</div>
+
+<script type="text/javascript">
+	jQuery('.order_status').editable({
+		source: [
+		<% @order_statuses.each do |oi|%>
+		{value: <%= oi.id %>, text: '<%= oi.name %>'},
+		<%end%>
+		],
+		display: function(value, sourceData) {
+			var colors = {"": "gray", 1: "red", 2: "green", 3: "blue", 4: "black"},
+			elem = jQuery.grep(sourceData, function(o){return o.value == value;});
+
+			if(elem.length) {
+				jQuery(this).text(elem[0].text).css("color", colors[value]);
+			} else {
+				jQuery(this).empty();
+			}
+		}
+	});
+
+	$(document).on('click','.editable-submit',function(){
+		var x = $(this).closest('td').children('a').attr('id');
+		var y = $('.input-sm').val();
+		var z = $(this).closest('td').children('a');
+
+		$.ajax({
+			url: "<%= update_status_admin_orders_path%>",
+			type: 'post',
+			dataType: 'json',
+			data: {
+				order_id : x,
+				order_status_id : y
+			},
+			success: function(data){
+				console.log(data)
+				if(data.status == 'success'){alert('Done!');}
+				if(data.status == 'error') {alert('Error!');}
+			},
+			error: function(e){
+				console.log(e)
+				alert('Error Processing your Request!!');
+			}
+		});
+	});
+</script>

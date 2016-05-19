@@ -3,9 +3,9 @@ module Admin
 		before_action :set_user, only:[:show, :edit, :update, :destroy]
 
 		@is_user_update = false
-		
+
 		def index
-			@users = User.order("created_at DESC")
+			@users = User.order("id DESC")
 		end
 
 		def show

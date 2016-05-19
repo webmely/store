@@ -1,0 +1,15 @@
+<%- title "Edit " + @order_status.name %>
+
+<!-- page title -->
+<header id="page-header">
+	<h1><%= content_for(:title)%></h1>
+	<ol class="breadcrumb">
+    <li><a href="<%= admin_order_statuses_path %>">Order Status</a></li>
+    <li class="active"><%= content_for(:title)%></li>
+	</ol>
+</header>
+<!-- /page title -->
+
+<div id="content" class="padding-20">
+	<%= render 'form' %>
+</div>

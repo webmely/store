@@ -46,12 +46,12 @@
 				</div>
 				<!-- /hover buttons -->
 
-				<!-- product more info --
+			<% if p.price_current.present? %>
 				<div class="shop-item-info">
-					<span class="label label-success">NEW</span>
+					<!--<span class="label label-success">NEW</span>-->
 					<span class="label label-danger">SALE</span>
 				</div>
-				<!-- /product more info -->
+			<% end%>
 			</div>
 
 			<div class="shop-item-summary text-center">
@@ -80,11 +80,17 @@
 			<!-- buttons -->
 			<% unless p.active? %>
 			<div class="shop-item-buttons text-center">
-				<span class="out-of-stock">out of stock</span>
+				<span class="out-of-stock">Out of stock</span>
 			</div>
 			<% else%>
 			<div class="shop-item-buttons text-center">
-				<a class="btn btn-default" href="shop-cart.html"><i class="fa fa-cart-plus"></i> Add to Cart</a>
+				<form action="/cart/add_to_cart/" method="get">
+					<input type="hidden" name="id" value='<%= p.id %>' />
+					<input type="hidden" name="quantity" value='<%=p.quantity%>' />
+					<%= button_tag(type: 'submit', class: "btn btn-default") do %>
+						<i class="fa fa-cart-plus"></i> Add to Cart
+					<% end %>
+				</form>
 			</div>
 			<% end%>
 			<!-- /buttons -->

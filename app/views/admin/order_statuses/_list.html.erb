@@ -1,0 +1,27 @@
+<div class="list-products table-responsive">
+	<table class="table table-bordered table-vertical-middle nomargin">
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>Description</th>
+			</tr>
+		</thead>
+		<tbody>
+			<% @order_statuses.each do |c|%>
+			<tr class="product-item">
+				<td>
+					<strong><%= c.name%></strong>
+					<div class="product-action">
+					<%= link_to edit_admin_order_status_path(c), class: "btn btn-default btn-xs", target: "_parent"  do%>
+						<i class="fa fa-pencil white"></i> Edit
+					<% end %>
+					<%= link_to admin_order_status_path(c), method: "DELETE", class: "btn btn-default btn-xs", target: "_parent"  do%>
+						<i class="fa fa-trash white"></i> Delete
+					<% end %>
+				</td>
+				<td><%= c.description%></td>
+			</tr>
+			<%end%>
+		</tbody>
+	</table>
+</div>

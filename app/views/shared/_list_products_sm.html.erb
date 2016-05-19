@@ -10,16 +10,20 @@
 				end %>
 
 				<div class="shop-option-over">
-					<%= link_to cart_path, class: "btn btn-default", target: "_parent" do %>
-					<i class="fa fa-cart-plus size-18"></i>
-					<% end %>
+					<a class= "btn btn-default" target= "_parent">
+						<i class="fa fa-cart-plus size-18"></i>
+					</a>
 				</div>
 			</div>
 			<div class="shop-item-summary text-center">
 				<h2 class="size-14"><%= p.name %></h2>
+
+				<!-- rating --
 				<div class="shop-item-rating-line">
 					<div class="rating rating-4 size-11"></div>
 				</div>
+				-- /rating -->
+
 				<div class="shop-item-price">
 					<% unless p.price_current.present? %>
 					<%= number_to_currency(p.price)%>

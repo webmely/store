@@ -25,11 +25,11 @@
 					<div class="row">
 						<div class="col-md-6 col-sm-6">
 							<label class="control-label">Price</label>
-							<%= f.text_field :price, class: "form-control", placeholder: "Price" %>
+							<%= f.number_field :price, class: "form-control", placeholder: "Price" %>
 						</div>
 						<div class="col-md-6 col-sm-6">
 							<label class="control-label">Price Current</label>
-							<%= f.text_field :price_current, class: "form-control", placeholder: "Price Current" %>
+							<%= f.number_field :price_current, class: "form-control", placeholder: "Price Current" %>
 						</div>
 					</div>
 				</div>
@@ -37,13 +37,18 @@
 				<div class="form-group">
 					<label class="control-label">Categories</label>
 					<div class="fancy-form fancy-form-select">
-						<%= unless @categories.blank? 
-							f.select :categories, Category.all.collect {|x| [x.name, x.id]}, {:selected => @categories.map(&:id)}, {:class => "form-control select2", :multiple => true} 
-							else 
-							f.select :categories, Category.all.collect {|x| [x.name, x.id]}, {}, {:class => "form-control select2", :multiple => true} 
+						<%= unless @categories.blank?
+							f.select :categories, Category.all.collect {|x| [x.name, x.id]}, {:selected => @categories.map(&:id)}, {:class => "form-control select2", :multiple => true}
+							else
+							f.select :categories, Category.all.collect {|x| [x.name, x.id]}, {}, {:class => "form-control select2", :multiple => true}
 							end %>
 						<i class="fancy-arrow-double"></i>
 					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="control-label">Quantity</label>
+					<%= f.number_field :quantity, class: "form-control", placeholder: "Quantity" %>
 				</div>
 
 				<div class="form-group">
@@ -107,18 +112,28 @@
 
 			<!-- panel content -->
 			<div class="panel-body">
-				<ul class="list-unstyled" style="margin-bottom: 0">
-					<% if @product.created_at?%>
-					<li class="text-gray">
-						<i class="fa fa-calendar"></i> Date Published: <%= @product.created_at.strftime("%B %d %Y, %H:%M:%S")%>
-					</li>
-					<% end %>
-					<% if @product.updated_at?%>
-					<li class="text-gray">
-						<i class="fa fa-calendar"></i> Last Update: <%= @product.updated_at.strftime("%B %d %Y, %H:%M:%S")%>
-					</li>
-					<% end %>
-				</ul>
+			<% if @product.created_at? || @product.updated_at?%>
+				<div class="form-group">
+					<ul class="list-unstyled" style="margin-bottom: 0">
+						<% if @product.created_at?%>
+						<li class="text-gray">
+							<i class="fa fa-calendar"></i> Date Published: <%= @product.created_at.strftime("%B %d %Y, %H:%M:%S")%>
+						</li>
+						<% end %>
+						<% if @product.updated_at?%>
+						<li class="text-gray">
+							<i class="fa fa-calendar"></i> Last Update: <%= @product.updated_at.strftime("%B %d %Y, %H:%M:%S")%>
+						</li>
+						<% end %>
+					</ul>
+				</div>
+			<% end %>
+
+				<label class="switch switch switch-round">
+					<%= f.check_box :active, {}, 1, 0%>
+					<span class="switch-label" data-on="YES" data-off="NO"></span>
+					<span> Active?</span>
+				</label>
 			</div>
 
 			<div class="panel-footer">

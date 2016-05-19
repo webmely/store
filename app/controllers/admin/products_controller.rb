@@ -7,7 +7,7 @@ module Admin
 			@products = Product.order("created_at DESC").page(params[:page]).per(10)
 		end
 
-		def show 
+		def show
 			@product = Product.find(params[:id])
 			@categories = @product.categories
 		end
@@ -18,14 +18,14 @@ module Admin
 
 		def edit
 			@is_product_update = true
-			@categories = @product.categories			
+			@categories = @product.categories
 		end
 
 		def create
 			@product = Product.new(safe_params)
-			
+
 			if @product.save
-				
+
 				product = params[:product]
 
 				product[:categories].each do |c|
@@ -38,14 +38,14 @@ module Admin
 						end
 					end
 				end
-				
+
 			else
 				render "new"
 			end
 			redirect_to edit_admin_product_path(@product)
 		end
 
-		def update			
+		def update
 			@product = Product.find(params[:id])
 			@categories = @product.categories
 
@@ -62,7 +62,7 @@ module Admin
 						end
 					end
 				end
-				
+
 			else
 				render "new"
 			end
@@ -81,7 +81,7 @@ module Admin
 		end
 
 		def safe_params
-			params.require(:product).permit(:name, :price, :price_current, :thumbnail, :active, :description, :short_description)
+			params.require(:product).permit(:name, :price, :price_current, :quantity, :thumbnail, :active, :description, :short_description)
 		end
 	end
 end

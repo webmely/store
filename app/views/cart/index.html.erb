@@ -1,0 +1,180 @@
+<%- title "Your Cart"  %>
+
+<!-- CART -->
+<section>
+	<div class="container">
+
+	<% unless session["cart"].size == 0 %>
+
+		<!-- CART -->
+		<div class="row">
+
+			<!-- LEFT -->
+			<div class="col-lg-9 col-sm-8">
+				<!-- CART -->
+				<form class="cartContent clearfix" method="post" action="/cart/update_quantity_to_cart">
+
+					<!-- cart content -->
+					<div id="cartContent">
+						<!-- cart header -->
+						<div class="item head clearfix">
+							<span class="cart_img"></span>
+							<span class="product_name size-13 bold">PRODUCT NAME</span>
+							<span class="remove_item size-13 bold"></span>
+							<span class="total_price size-13 bold">TOTAL</span>
+							<span class="qty size-13 bold">QUANTITY</span>
+						</div>
+						<!-- /cart header -->
+
+						<!-- cart item -->
+						<%
+						# Tong tien san pham
+						subtotal = 0
+						discount = 0
+						shipping = 0
+
+						if !session["cart"].nil?
+						session["cart"].each do |s|
+								item = Product.find(s['id'])
+								price = item.price_current.present? ? item.price_current : item.price
+								subtotal += price*s['quantity']
+						%>
+							<div class="item">
+								<div class="cart_img pull-left width-100 padding-10 text-left">
+									<img src="<%= item.thumbnail.thumb_xs.url %>" alt="" width="80" />
+								</div>
+
+								<%= link_to product_path(item), class: "product_name", target: "_parent"  do%>
+									<span><%= item.name %></span>
+									<small><%= item.short_description %></small>
+								<% end %>
+
+								<a href="<%= url_for :controller => 'cart', :action => 'delete_product_to_cart', :id => s['id'] %>" target="_parent" class="remove_item">
+									<i class="fa fa-times"></i>
+								</a>
+
+								<div class="total_price">
+									<%= number_to_currency(price*s['quantity']) %>
+								</div>
+
+								<div class="qty">
+									<input type="number" value="<%= s['quantity']%>" name="quantity_update" maxlength="3" class="input-quantity" max="999" min="1" data-product-id="<%= item.id%>"/> &times;
+									<% unless item.price_current.present? %>
+										<%= number_to_currency(item.price)%>
+									<% else%>
+										<%= number_to_currency(item.price_current)%>
+										<span class="line-through">
+											<%= number_to_currency(item.price)%>
+										</span>
+									<% end%>
+								</div>
+								<div class="clearfix"></div>
+							</div>
+						<% end
+						end %>
+						<!-- /cart item -->
+
+						<!-- update cart --
+						<button type="submit" class="btn btn-success margin-top-20 margin-right-10 pull-right"><i class="glyphicon glyphicon-ok"></i> UPDATE CART</button>
+						<button type="reset" class="btn btn-danger margin-top-20 margin-right-10 pull-right"><i class="glyphicon glyphicon-remove"></i> CLEAR CART</button>
+						<!-- /update cart -->
+
+						<div class="clearfix"></div>
+					</div>
+					<!-- /cart content -->
+
+				</form>
+				<!-- /CART -->
+			</div>
+
+			<!-- RIGHT -->
+			<div class="col-lg-3 col-sm-4">
+
+				<!-- TOGGLE -->
+				<div class="toggle-transparent toggle-bordered-full clearfix">
+
+					<div class="toggle nomargin-top">
+						<label>Voucher</label>
+
+						<div class="toggle-content">
+							<p>Enter your discount coupon code.</p>
+
+							<form action="#" method="post" class="nomargin">
+								<input type="text" id="cart-code" name="cart-code" class="form-control text-center margin-bottom-10" placeholder="Voucher Code" required="required">
+								<button class="btn btn-primary btn-block" type="submit">SUBMIT</button>
+							</form>
+						</div>
+					</div>
+				</div>
+				<!-- /TOGGLE -->
+
+				<div class="toggle-transparent toggle-bordered-full clearfix">
+					<div class="toggle active">
+						<div class="toggle-content">
+
+							<span class="clearfix">
+								<span class="pull-right"><%= number_to_currency(subtotal)%></span>
+								<strong class="pull-left">Subtotal:</strong>
+							</span>
+							<span class="clearfix">
+								<span class="pull-right"><%= number_to_currency(discount)%></span>
+								<span class="pull-left">Discount:</span>
+							</span>
+							<span class="clearfix">
+								<span class="pull-right"><%= number_to_currency(shipping)%></span>
+								<span class="pull-left">Shipping:</span>
+							</span>
+
+							<hr />
+
+							<span class="clearfix">
+								<span class="pull-right size-20"><%= number_to_currency(subtotal + discount+ shipping)%></span>
+								<strong class="pull-left">TOTAL:</strong>
+							</span>
+
+							<hr />
+
+							<%= link_to new_order_path, class: "btn btn-primary btn-lg btn-block size-15", target: "_parent" do %>
+								<i class="fa fa-mail-forward"></i> Proceed to Checkout
+							<% end %>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+		<!-- /CART -->
+	<% else %>
+		<!-- EMPTY CART -->
+		<div class="panel panel-default">
+			<div class="panel-body">
+				<strong>Shopping cart is empty!</strong><br />
+				You have no items in your shopping cart.<br />
+				Click <a href="<%= products_path %>" target="_parent">here</a> to continue shopping. <br />
+				<span class="label label-warning">this is just an empty cart example</span>
+			</div>
+		</div>
+		<!-- /EMPTY CART -->
+	<% end %>
+	</div>
+</section>
+<!-- /CART -->
+
+<script>
+//function update quantity
+	$(".input-quantity").change(function(){
+		var quantity = $(this).val();
+		var id = $(this).attr('data-product-id');
+		console.log(quantity)
+		console.log(id)
+		jQuery.ajax({
+			url: "/cart/update_quantity_to_cart",
+			type: "GET",
+			data: {product_id: id, quantity_update: quantity},
+			success:function(data){
+				location.reload();
+			},
+			error:function (){}
+		});
+	});
+</script>

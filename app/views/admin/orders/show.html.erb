@@ -1,0 +1,119 @@
+<%- title "Order #" + @order.id.to_s %>
+
+<!-- page title -->
+<header id="page-header">
+  <h1><%= content_for(:title)%></h1>
+  <ol class="breadcrumb">
+    <li><a href="<%= admin_orders_path %>">Orders</a></li>
+    <li class="active"><%= content_for(:title)%></li>
+  </ol>
+</header>
+<!-- /page title -->
+
+<div id="content" class="padding-20">
+  <div class="panel panel-default">
+    <div class="panel-body">
+
+      <div class="row">
+        <div class="col-md-6 col-sm-6 text-left">
+          <h4><strong>Client</strong> Details</h4>
+          <ul class="list-unstyled">
+            <li><strong>Full Name:</strong> <%= @order.reciver_fullname%></li>
+            <li><strong>Email:</strong> <%= @order.reciver_email%></li>
+            <li><strong>Phone:</strong> <%= @order.reciver_phone%></li>
+            <li><strong>Address:</strong> <%= @order.reciver_address%></li>
+          </ul>
+        </div>
+        <!--
+        <div class="col-md-6 col-sm-6 text-right">
+          <h4><strong>Payment</strong> Details</h4>
+          <ul class="list-unstyled">
+            <li><strong>Bank Name:</strong> 012345678901</li>
+            <li><strong>Account Number:</strong> 012345678901</li>
+            <li><strong>SWIFT Code:</strong> SWITCH012345678CODE</li>
+            <li><strong>V.A.T Reg #:</strong> VAT5678901CODE</li>
+          </ul>
+        </div>
+        -->
+      </div>
+
+      <div class="table-responsive">
+        <table class="table table-condensed nomargin">
+          <thead>
+            <tr>
+              <th>Item Name</th>
+              <th class="text-right" width="100px">Unit Price</th>
+              <th class="text-center">Quantity</th>
+              <th class="text-right" width="100px">Total Price</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @order_items.each do |p|%>
+              <% item = Product.find(p.product_id) %>
+              <tr>
+                <td>
+                  <div><strong><%= item.name%></strong></div>
+                  <small><%= item.short_description %></small>
+                </td>
+                <td class="text-right">
+                  <% unless item.price_current.present? %>
+                    <%= number_to_currency(item.price)%>
+                  <% else%>
+                    <%= number_to_currency(item.price_current)%>
+                    <span class="line-through">
+                      <%= number_to_currency(item.price)%>
+                    </span>
+                  <% end%>
+                </td>
+                <td class="text-center"><%= p.quantity %></td>
+                <td class="text-right"><%= number_to_currency(p.total_price) %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+
+      <hr class="nomargin-top" />
+      <div class="row">
+
+        <div class="col-sm-6 text-left">
+          <h4><strong>Contact</strong> Details</h4>
+
+          <% unless @order.note.blank? %>
+          <p class="nomargin nopadding">
+            <strong>Note:</strong>
+            <%= @order.note%>
+          </p><br>
+          <%end%>
+
+          <address>
+            <%= @order.reciver_address%><br>
+            Phone: <%= @order.reciver_phone%> <br>
+            Email: <%= @order.reciver_email%>
+          </address>
+
+        </div>
+
+        <div class="col-sm-6 text-right">
+
+          <ul class="list-unstyled">
+            <li><strong>Sub - Total Amount:</strong> <%= number_to_currency(@order.subtotal)%></li>
+            <li><strong>Discount:</strong> <%= number_to_currency(@order.discount)%></li>
+            <li><strong>Shipping:</strong> <%= number_to_currency(@order.shipping)%></li>
+            <li><strong>Grand Total:</strong> <%= number_to_currency(@order.total)%></li>
+          </ul>
+
+          <a class="btn btn-default" href="#">MAKE A PAYMENT</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel panel-default text-right">
+    <div class="panel-body">
+      <a class="btn btn-warning" href="#"><i class="fa fa-pencil-square-o"></i> EDIT</a>
+      <a class="btn btn-primary" href="#"><i class="fa fa-check"></i> SAVE</a>
+      <a class="btn btn-success" href="page-invoice-print.html" target="_blank"><i class="fa fa-print"></i> PRINT INVOICE</a>
+    </div>
+  </div>
+</div>

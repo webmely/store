@@ -5,13 +5,23 @@
 			<%= link_to product_path(p), class: "shop-item-image", target: "_parent" do
 				image_tag p.thumbnail.thumb_sm.url, :class => "img-responsive", :alt => p.name
 			end %>
+
+			<% if p.price_current.present? %>
+				<div class="shop-item-info">
+					<!--<span class="label label-success">NEW</span>-->
+					<span class="label label-danger">SALE</span>
+				</div>
+			<% end%>
+
 		</div>
 
 		<div class="shop-item-summary text-center">
 			<h2><%= p.name %></h2>
+			<!-- rating --
 			<div class="shop-item-rating-line">
-				<div class="rating rating-4 size-13"><!-- rating-0 ... rating-5 --></div>
+				<div class="rating rating-4 size-13"></div>
 			</div>
+			-- /rating -->
 			<div class="shop-item-price">
 				<% unless p.price_current.present? %>
 				<%= number_to_currency(p.price)%>
@@ -24,13 +34,23 @@
 			</div>
 		</div>
 
-		<!-- buttons -->
-		<div class="shop-item-buttons text-center">
-			<%= link_to cart_path, class: "btn btn-default", target: "_parent" do %>
-			<i class="fa fa-cart-plus"></i> Add to Cart
-			<% end %>
-		</div>
-		<!-- /buttons -->
+			<!-- buttons -->
+			<% unless p.active? %>
+			<div class="shop-item-buttons text-center">
+				<span class="out-of-stock">Out of stock</span>
+			</div>
+			<% else%>
+			<div class="shop-item-buttons text-center">
+				<form action="/cart/add_to_cart/" method="get">
+					<input type="hidden" name="id" value='<%= p.id %>' />
+					<input type="hidden" name="quantity" value="1" />
+					<%= button_tag(type: 'submit', class: "btn btn-default") do %>
+						<i class="fa fa-cart-plus"></i> Add to Cart
+					<% end %>
+				</form>
+			</div>
+			<% end%>
+			<!-- /buttons -->
 	</div>
 	<!-- /item -->
 	<% end %>

@@ -7,7 +7,7 @@
 		<form action="page-search-result-1.html" method="get">
 			<input type="text" class="form-control" placeholder="SEARCH" />
 		</form>
-	</div> 
+	</div>
 	<!-- /SEARCH HEADER -->
 
 
@@ -35,40 +35,49 @@
 				<!-- QUICK SHOP CART -->
 				<li class="quick-cart">
 					<a href="#">
-						<span class="badge badge-aqua btn-xs badge-corner">2</span>
-						<i class="fa fa-shopping-cart"></i> 
+						<span class="badge badge-aqua btn-xs badge-corner">
+							<%= session["cart"].try(:size) || 0%>
+						</span>
+						<i class="fa fa-shopping-cart"></i>
 					</a>
 					<div class="quick-cart-box">
 						<h4>Shop Cart</h4>
 
 						<div class="quick-cart-wrapper">
+							<%
+							total = 0
+							if !session["cart"].nil?
+							unless session["cart"].size == 0 %>
+								<% session["cart"].each do |s|
+									item = Product.find(s['id'])
+									price = item.price_current.present? ? item.price_current : item.price
+									total += price*s['quantity']
+									%>
 
-							<%= link_to product_path(1), target: "_parent" do %>
-								<%= image_tag("http://localhost:3000/fallback/thumb_xs_product.png", width: "45", height:"45", alt: "logo")%>
-								<h6><span>2x</span> RED BAG WITH HUGE POCKETS</h6>
-								<small>$37.21</small>
-							<% end %>
+									<%= link_to product_path(item), target: "_parent" do %>
+										<%= image_tag( item.thumbnail.thumb_xs.url, width: "45", height:"45", alt: "logo")%>
+										<h6><span><%= s['quantity']%>x</span> <%= item.name %></h6>
+										<small><%= number_to_currency(price*s['quantity']) %></small>
+									<% end %>
 
-							<%= link_to product_path(1), target: "_parent" do %>
-								<%= image_tag("http://localhost:3000/fallback/thumb_xs_product.png", width: "45", height:"45", alt: "logo")%>
-								<h6><span>2x</span> THIS IS A VERY LONG TEXT AND WILL BE TRUNCATED</h6>
-								<small>$17.18</small>
-							<% end %>
-
-							<!-- cart no items example -->
-										<!--
-										<a class="text-center" href="#">
-											<h6>0 ITEMS ON YOUR CART</h6>
-										</a>
-									-->
-
-								</div>
+								<%end%>
+							<% else %>
+								<a class="text-center" href="javascript:void(0)">
+									<h6>0 ITEMS ON YOUR CART</h6>
+								</a>
+							<%end%>
+							<% else %>
+								<a class="text-center" href="javascript:void(0)">
+									<h6>0 ITEMS ON YOUR CART</h6>
+								</a>
+							<%end%>
+						</div>
 
 								<!-- quick cart footer -->
 								<div class="quick-cart-footer clearfix">
 
-									<%= link_to "VIEW CART", cart_path, class: "btn btn-primary btn-xs pull-right", target: "_parent"%>
-									<span class="pull-left"><strong>TOTAL:</strong> $54.39</span>
+									<%= link_to "VIEW CART", cart_index_path, class: "btn btn-primary btn-xs pull-right", target: "_parent"%>
+									<span class="pull-left"><strong>TOTAL:</strong> <%= number_to_currency(total)%></span>
 								</div>
 								<!-- /quick cart footer -->
 
@@ -84,9 +93,9 @@
 						<%= image_tag("logo_dark.png", alt: "logo")%>
 					<% end%>
 
-						<!-- 
-							Top Nav 
-							
+						<!--
+							Top Nav
+
 							AVAILABLE CLASSES:
 							submenu-dark = dark sub menu
 						-->
@@ -95,9 +104,9 @@
 
 								<!--
 									NOTE
-									
+
 									For a regular link, remove "dropdown" class from LI tag and "dropdown-toggle" class from the href.
-									Direct Link Example: 
+									Direct Link Example:
 
 									<li>
 										<a href="#">HOME</a>
@@ -119,7 +128,7 @@
 												<%= link_to "PRODUCT DETAILS", product_path(1), target: "_parent" %>
 											</li>
 											<li>
-												<%= link_to "CART", cart_path, target: "_parent" %>
+												<%= link_to "CART", cart_index_path, target: "_parent" %>
 											</li>
 										</ul>
 									</li>

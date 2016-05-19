@@ -15,12 +15,15 @@
 					<div class="product-info">
 						<strong><%= p.name%></strong>
 						<p><%= p.short_description%></p>
-						<div class="product-action">					
+						<div class="product-action">
 						<%= link_to edit_admin_product_path(p), class: "btn btn-default btn-xs", target: "_parent"  do%>
 							<i class="fa fa-pencil white"></i> Edit
 						<% end %>
 						<%= link_to admin_product_path(p), method: "DELETE", class: "btn btn-default btn-xs", target: "_parent"  do%>
 							<i class="fa fa-trash white"></i> Delete
+						<% end %>
+						<%= link_to product_path(p), class: "btn btn-default btn-xs", target: "_blank"  do%>
+							<i class="fa fa-location-arrow"></i> View
 						<% end %>
 						</div>
 					</div>

@@ -11,6 +11,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.string :website
       t.text :biographical
       t.integer :role_id
+      t.boolean :active, null: false, default: 1
 
       ## Recoverable
       t.string   :reset_password_token

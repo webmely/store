@@ -4,7 +4,7 @@ class ProductsController < ApplicationController
     @products = Product.all
   end
 
-  def show 
+  def show
     @products = Product.all
   end
 
@@ -14,6 +14,6 @@ class ProductsController < ApplicationController
   end
 
   def safe_params
-  	params.require(:product).permit(:name, :price, :price_current, :thumbnail, :active, :description, :short_description)
+  	params.require(:product).permit(:name, :price, :price_current, :quantity, :thumbnail, :active, :description, :short_description)
   end
 end

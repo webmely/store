@@ -8,7 +8,7 @@ class CreateProducts < ActiveRecord::Migration
       t.integer :quantity
       t.text :description
       t.text :short_description
-      t.boolean :active
+      t.boolean :active, null: false, default: 1
 
       t.timestamps null: false
     end

@@ -33,7 +33,7 @@
 					<i class="fa fa-menu-arrow pull-right"></i>
 					<i class="main-icon fa fa-users"></i> <span>Users</span>
 				</a>
-				<ul>					
+				<ul>
 					<li class="<%=add_class_cp(admin_users_path,'active')%> <%= (@is_user_update && @user != current_user)? 'active' : '' %>">
 						<%= link_to "All Users", admin_users_path, target: "_parent"%>
 					</li>
@@ -42,6 +42,22 @@
 					</li>
 					<li class="<%=add_class_cp(edit_admin_user_path(current_user),'active')%>">
 						<%= link_to "Your Profile", edit_admin_user_path(current_user), target: "_parent"%>
+					</li>
+				</ul>
+			</li>
+			<%end%>
+			<% if current_user.admin? || current_user.seller?%>
+			<li class="<%= add_class_cps([admin_order_statuses_path, admin_orders_path], 'active')%> <%= @is_order_details? 'active' : '' %>">
+				<a href="#">
+					<i class="fa fa-menu-arrow pull-right"></i>
+					<i class="main-icon fa fa-shopping-cart"></i> <span>Orders</span>
+				</a>
+				<ul>
+					<li class="<%=add_class_cp(admin_orders_path,'active')%> <%= @is_order_details? 'active' : '' %>">
+						<%= link_to "All Orders", admin_orders_path, target: "_parent"%>
+					</li>
+					<li class="<%=add_class_cp(admin_order_statuses_path,'active')%> <%= @is_order_status_update? 'active' : '' %>">
+						<%= link_to "Order Status", admin_order_statuses_path, target: "_parent"%>
 					</li>
 				</ul>
 			</li>

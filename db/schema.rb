@@ -46,19 +46,25 @@ ActiveRecord::Schema.define(version: 20160511024106) do
   add_index "order_items", ["product_id"], name: "index_order_items_on_product_id", using: :btree
 
   create_table "order_statuses", force: :cascade do |t|
-    t.string   "name",       limit: 255
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.string   "name",        limit: 255
+    t.text     "description", limit: 65535
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
   end
 
   create_table "orders", force: :cascade do |t|
-    t.decimal  "subtotal",                  precision: 12, scale: 3
-    t.decimal  "tax",                       precision: 12, scale: 3
-    t.decimal  "shipping",                  precision: 12, scale: 3
-    t.decimal  "total",                     precision: 12, scale: 3
-    t.integer  "order_status_id", limit: 4
-    t.datetime "created_at",                                         null: false
-    t.datetime "updated_at",                                         null: false
+    t.decimal  "subtotal",                       precision: 12, scale: 3
+    t.decimal  "discount",                       precision: 12, scale: 3
+    t.decimal  "shipping",                       precision: 12, scale: 3
+    t.decimal  "total",                          precision: 12, scale: 3
+    t.string   "reciver_fullname", limit: 255
+    t.string   "reciver_email",    limit: 255
+    t.string   "reciver_phone",    limit: 255
+    t.string   "reciver_address",  limit: 255
+    t.text     "note",             limit: 65535
+    t.integer  "order_status_id",  limit: 4
+    t.datetime "created_at",                                              null: false
+    t.datetime "updated_at",                                              null: false
   end
 
   add_index "orders", ["order_status_id"], name: "index_orders_on_order_status_id", using: :btree
@@ -71,14 +77,14 @@ ActiveRecord::Schema.define(version: 20160511024106) do
     t.integer  "quantity",          limit: 4
     t.text     "description",       limit: 65535
     t.text     "short_description", limit: 65535
-    t.boolean  "active"
-    t.datetime "created_at",                                               null: false
-    t.datetime "updated_at",                                               null: false
+    t.boolean  "active",                                                   default: true, null: false
+    t.datetime "created_at",                                                              null: false
+    t.datetime "updated_at",                                                              null: false
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",                  limit: 255,   default: "", null: false
-    t.string   "encrypted_password",     limit: 255,   default: "", null: false
+    t.string   "email",                  limit: 255,   default: "",   null: false
+    t.string   "encrypted_password",     limit: 255,   default: "",   null: false
     t.string   "fullname",               limit: 255
     t.string   "address",                limit: 255
     t.string   "phone",                  limit: 255
@@ -86,16 +92,17 @@ ActiveRecord::Schema.define(version: 20160511024106) do
     t.string   "website",                limit: 255
     t.text     "biographical",           limit: 65535
     t.integer  "role_id",                limit: 4
+    t.boolean  "active",                               default: true, null: false
     t.string   "reset_password_token",   limit: 255
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          limit: 4,     default: 0,  null: false
+    t.integer  "sign_in_count",          limit: 4,     default: 0,    null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip",     limit: 255
     t.string   "last_sign_in_ip",        limit: 255
-    t.datetime "created_at",                                        null: false
-    t.datetime "updated_at",                                        null: false
+    t.datetime "created_at",                                          null: false
+    t.datetime "updated_at",                                          null: false
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

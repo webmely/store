@@ -65,7 +65,7 @@
 				<div class="form-group">
 					<label class="control-label">Password</label>
 					<%= f.password_field :password, class: "form-control", placeholder: "Password" %>
-				</div>					
+				</div>
 				<% end%>
 				<div class="form-group">
 					<label>Role</label>
@@ -91,18 +91,28 @@
 
 			<!-- panel content -->
 			<div class="panel-body">
-				<ul class="list-unstyled" style="margin-bottom: 0">
-					<% if @user.created_at?%>
-					<li class="text-gray">
-						<i class="fa fa-calendar"></i> Date Register: <%= @user.created_at.strftime("%B %d %Y, %H:%M:%S")%>
-					</li>
-					<% end %>
-					<% if @user.updated_at?%>
-					<li class="text-gray">
-						<i class="fa fa-calendar"></i> Last Update: <%= @user.updated_at.strftime("%B %d %Y, %H:%M:%S")%>
-					</li>
-					<% end %>
-				</ul>
+				<% if @user.created_at? || @user.updated_at?%>
+				<div class="form-group">
+					<ul class="list-unstyled" style="margin-bottom: 0">
+						<% if @user.created_at?%>
+						<li class="text-gray">
+							<i class="fa fa-calendar"></i> Date Register: <%= @user.created_at.strftime("%B %d %Y, %H:%M:%S")%>
+						</li>
+						<% end %>
+						<% if @user.updated_at?%>
+						<li class="text-gray">
+							<i class="fa fa-calendar"></i> Last Update: <%= @user.updated_at.strftime("%B %d %Y, %H:%M:%S")%>
+						</li>
+						<% end %>
+					</ul>
+				</div>
+				<% end %>
+
+				<label class="switch switch switch-round">
+					<input type="checkbox">
+					<span class="switch-label" data-on="YES" data-off="NO"></span>
+					<span> Active?</span>
+				</label>
 			</div>
 
 			<div class="panel-footer">

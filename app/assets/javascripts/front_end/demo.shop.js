@@ -11,12 +11,12 @@
 
 
 
-	/**	_shop() 
+	/**	_shop()
 	******************************* **/
 	function _shop() {
 
 
-	
+
 		/* ******************* PHP URL TO POST *************** */
 		var URL_POST = 'php/view/demo.shop.php'; // CHANGE IT!
 		/* *************************************************** */
@@ -24,7 +24,7 @@
 
 
 
-		/** ADD TO WISHLIST 
+		/** ADD TO WISHLIST
 		 ** *********************** **/
 		jQuery("a.add-wishlist").bind("click", function(e) {
 			e.preventDefault();
@@ -56,9 +56,9 @@
 						_toastr("INVALID ID - Item Not Added to Wishlit!","top-right","error",false);
 
 					} else
-					
 
-					
+
+
 					// PHP RETURN: OK, ADDED TO WISHLIST
 					if(data == '_ok_') {
 
@@ -74,7 +74,7 @@
 
 				}
 			});
-			
+
 		});
 
 
@@ -114,9 +114,9 @@
 						_toastr("INVALID ID - Item Not Added to Compare List!","top-right","error",false);
 
 					} else
-					
 
-					
+
+
 					// PHP RETURN: OK, ADDED TO WISHLIST
 					if(data == '_ok_') {
 
@@ -132,7 +132,7 @@
 
 				}
 			});
-			
+
 		});
 
 
@@ -143,7 +143,7 @@
 		 ** *********************** **/
 
 		/**
-			@COLOR SELECTOR 
+			@COLOR SELECTOR
 		**/
 		jQuery("#product-color-dd li a").bind("click", function(e) {
 			e.preventDefault();
@@ -158,7 +158,7 @@
 
 
 		/**
-			@SIZE SELECTOR 
+			@SIZE SELECTOR
 		**/
 		jQuery("#product-size-dd li a").bind("click", function(e) {
 			e.preventDefault();
@@ -176,16 +176,16 @@
 
 
 		/**
-			@QTY SELECTOR 
+			@QTY SELECTOR
 		**/
 		jQuery("#product-qty-dd li a").bind("click", function(e) {
 			e.preventDefault();
-			
+
 			var data_val = jQuery(this).attr('data-val').trim();
 
 			/* change visual value and hidden input */
 			jQuery("#product-selected-qty>span").empty().append(data_val);
-			jQuery("#qty").val(data_val); // UPDATE HIDDEN FIELD
+			jQuery("#quantity").val(data_val); // UPDATE HIDDEN FIELD
 
 			/* change visual selected */
 			jQuery("#product-qty-dd li").removeClass('active');
@@ -210,7 +210,7 @@
 				if(jQuery('#shipping').is(":visible")) {
 					_scrollTo('#shipping', 150);
 				}
-			
+
 			});
 		});
 

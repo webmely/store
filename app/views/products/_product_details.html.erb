@@ -75,7 +75,7 @@
 			<span class="pull-right text-success"><i class="fa fa-check"></i> In Stock</span>
 			<% end%>
 
-			<strong>SKU:</strong> UY7321987
+			<!-- <strong>SKU:</strong> UY7321987 -->
 		</div>
 
 
@@ -94,94 +94,33 @@
 		<hr />
 
 		<!-- FORM -->
-		<form class="clearfix form-inline nomargin" method="get" action="shop-cart.html">
-			<input type="hidden" name="product_id" value="1" />
+		<% unless @product.active? %>
+		<div class="shop-item-buttons text-center">
+			<span class="out-of-stock">Out of stock</span>
+		</div>
+		<% else%>
 
-			<!-- see http://localhost:3000/assets/js/view/demo.shop.js -->
-			<input type="hidden" id="color" name="color" value="yellow" />
-			<input type="hidden" id="qty" name="qty" value="1" />
-			<input type="hidden" id="size" name="size" value="5" />
-			<!-- see http://localhost:3000/assets/js/view/demo.shop.js -->
+			<form class="clearfix form-inline nomargin" method="get" action="/cart/add_to_cart/">
+				<input type="hidden" name="id" value="<%= @product.id %>" />
 
-			<div class="btn-group pull-left product-opt-color">
-				<button type="button" class="btn btn-default dropdown-toggle product-color-dd noradius" data-toggle="dropdown">&nbsp;
-					<span class="caret"></span> 
-					<span id="product-selected-color" class="tag shop-color" style="background-color:#F0E68C"></span>
-				</button>
+				<div class="btn-group pull-left product-opt-qty">
+					<input type="number" name="quantity" value="1" class="form-control noradius" style="max-width:100px;"/>
+				</div>
 
-				<ul id="product-color-dd" class="dropdown-menu clearfix" role="menu">
-					<li class="active"><a class="tag shop-color" data-val="purple" href="#800080" style="background-color:#800080"></a></li>
-					<li><a class="tag shop-color" data-val="red" href="#FF0000" style="background-color:#FF0000"></a></li>
-					<li><a class="tag shop-color" data-val="pink" href="#FF0080" style="background-color:#FF0080"></a></li>
-					<li><a class="tag shop-color" data-val="orange" href="#FF6600" style="background-color:#FF6600"></a></li>
-					<li><a class="tag shop-color" data-val="grey" href="#E0DCC8" style="background-color:#E0DCC8"></a></li>
-					<li><a class="tag shop-color" data-val="yellow" href="#F0E68C" style="background-color:#F0E68C"></a></li>
-					<li><a class="tag shop-color" data-val="light-yellow" href="#FFFFD0" style="background-color:#FFFFD0"></a></li>
-					<li><a class="tag shop-color" style="background-color:#4B0082"></a></li>
-					<li><a class="tag shop-color" data-val="dark-grey" href="#666666" style="background-color:#666666"></a></li>
-					<li><a class="tag shop-color" data-val="green" href="#00FF00" style="background-color:#00FF00"></a></li>
-				</ul>
-			</div><!-- /btn-group -->
+				<button type="submit" class="btn btn-primary pull-left product-add-cart noradius">ADD TO CART</button>
 
-			<div class="btn-group pull-left product-opt-size">
-				<button type="button" class="btn btn-default dropdown-toggle product-size-dd noradius" data-toggle="dropdown">
-					<span class="caret"></span>
-					Size <small id="product-selected-size">(<span>5</span>)</small>
-				</button>
+			</form>
+		<% end%>
 
-				<!-- data-val = size value or size id -->
-				<ul id="product-size-dd" class="dropdown-menu" role="menu">
-					<li class="active"><a data-val="5" href="#">5</a></li>
-					<li><a data-val="5.5" href="#">5.5</a></li>
-					<li><a data-val="6" href="#">6</a></li>
-					<li><a data-val="6.5" href="#">6.5</a></li>
-					<li><a data-val="7" href="#">7</a></li>
-					<li><a data-val="7.5" href="#">7.7</a></li>
-					<li><a data-val="8" href="#">8</a></li>
-					<li><a data-val="8.5" href="#">8.5</a></li>
-					<li><a data-val="9" href="#">9</a></li>
-					<li><a data-val="9.5" href="#">9.5</a></li>
-					<li><a data-val="10" href="#">10</a></li>
-					<li><a data-val="10.5" href="#">10.5</a></li>
-					<li><a data-val="11" href="#">11</a></li>
-					<li><a data-val="11.5" href="#">11.5</a></li>
-					<li><a data-val="12" href="#">12</a></li>
-					<li><a data-val="13" href="#">13</a></li>
-					<li><a data-val="14" href="#">14</a></li>
-				</ul>
-			</div><!-- /btn-group -->
 
-			<div class="btn-group pull-left product-opt-qty">
-				<button type="button" class="btn btn-default dropdown-toggle product-qty-dd noradius" data-toggle="dropdown">
-					<span class="caret"></span>
-					Qty <small id="product-selected-qty">(<span>5</span>)</small>
-				</button>
-
-				<ul id="product-qty-dd" class="dropdown-menu clearfix" role="menu">
-					<li class="active"><a data-val="1" href="#">1</a></li>
-					<li><a data-val="2" href="#">2</a></li>
-					<li><a data-val="3" href="#">3</a></li>
-					<li><a data-val="4" href="#">4</a></li>
-					<li><a data-val="5" href="#">5</a></li>
-					<li><a data-val="6" href="#">6</a></li>
-					<li><a data-val="7" href="#">7</a></li>
-					<li><a data-val="8" href="#">8</a></li>
-					<li><a data-val="9" href="#">9</a></li>
-					<li><a data-val="10" href="#">10</a></li>
-				</ul>
-			</div><!-- /btn-group -->
-
-			<button class="btn btn-primary pull-left product-add-cart noradius">ADD TO CART</button>
-
-		</form>
-		<!-- /FORM -->
 
 
 		<hr />
 
+		<!--
 		<small class="text-muted">
-			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas metus nulla, 
-			commodo a sodales sed, dignissim pretium nunc. Nam et lacus neque. Ut enim 
+			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas metus nulla,
+			commodo a sodales sed, dignissim pretium nunc. Nam et lacus neque. Ut enim
 			massa, sodales tempor convallis et.
 		</small>
 
@@ -191,30 +130,30 @@
 		<div class="pull-right">
 
 			<a href="#" class="social-icon social-icon-sm social-icon-transparent social-facebook pull-left" data-toggle="tooltip" data-placement="top" title="Facebook">
-				<i class="icon-facebook"></i>
-				<i class="icon-facebook"></i>
+				<i class="icon-social fa fa-facebook"></i>
+				<i class="icon-social fa fa-facebook"></i>
 			</a>
 
 			<a href="#" class="social-icon social-icon-sm social-icon-transparent social-twitter pull-left" data-toggle="tooltip" data-placement="top" title="Twitter">
-				<i class="icon-twitter"></i>
-				<i class="icon-twitter"></i>
+				<i class="icon-social fa fa-twitter"></i>
+				<i class="icon-social fa fa-twitter"></i>
 			</a>
 
 			<a href="#" class="social-icon social-icon-sm social-icon-transparent social-gplus pull-left" data-toggle="tooltip" data-placement="top" title="Google plus">
-				<i class="icon-gplus"></i>
-				<i class="icon-gplus"></i>
+				<i class="icon-social fa fa-google-plus"></i>
+				<i class="icon-social fa fa-google-plus"></i>
 			</a>
 
 			<a href="#" class="social-icon social-icon-sm social-icon-transparent social-linkedin pull-left" data-toggle="tooltip" data-placement="top" title="Linkedin">
-				<i class="icon-linkedin"></i>
-				<i class="icon-linkedin"></i>
+				<i class="icon-social fa fa-linkedin"></i>
+				<i class="icon-social fa fa-linkedin"></i>
 			</a>
 
 		</div>
 		<!-- /Share -->
 
 
-		<!-- rating -->
+		<!-- rating --
 		<div class="rating rating-4 size-13 margin-top-10 width-100"></div>
 		<!-- /rating -->
 
@@ -289,7 +228,7 @@
 
 			<div class="media-body">
 				<h4 class="media-heading size-14">
-					John Doe &ndash; 
+					John Doe &ndash;
 					<span class="text-muted">June 29, 2014 - 11:23</span> &ndash;
 					<span class="size-14 text-muted"><!-- stars -->
 						<i class="fa fa-star"></i>
@@ -318,7 +257,7 @@
 
 			<div class="media-body">
 				<h4 class="media-heading size-14">
-					John Doe &ndash; 
+					John Doe &ndash;
 					<span class="text-muted">June 29, 2014 - 11:23</span> &ndash;
 					<span class="size-14 text-muted"><!-- stars -->
 						<i class="fa fa-star"></i>
