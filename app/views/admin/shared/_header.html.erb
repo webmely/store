@@ -9,7 +9,7 @@
 			</li>
 		<%end%>
 		<% if current_user.admin? || current_user.seller?%>
-		<li class="<%= add_class_cps([admin_products_path,new_admin_product_path,admin_categories_path], 'active')%> <%= @is_product_update? 'active' : '' %> <%= @is_cat_update? 'active' : '' %>">
+		<li class="<%= add_class_cps([admin_products_path,new_admin_product_path,admin_categories_path, new_admin_category_path], 'active')%> <%= @is_product_update? 'active' : '' %> <%= @is_cat_update? 'active' : '' %>">
 				<a href="#">
 					<i class="fa fa-menu-arrow pull-right"></i>
 					<i class="main-icon fa fa-cubes"></i> <span>Products</span>
@@ -21,7 +21,7 @@
 					<li class="<%=add_class_cp(new_admin_product_path,'active')%>">
 						<%= link_to "New Product", new_admin_product_path, target: "_parent"%>
 					</li>
-					<li class="<%=add_class_cp(admin_categories_path,'active')%> <%= @is_cat_update? 'active' : '' %>">
+					<li class="<%= add_class_cps([admin_categories_path, new_admin_category_path], 'active')%> <%= @is_cat_update? 'active' : '' %>">
 						<%= link_to "Categories", admin_categories_path, target: "_parent"%>
 					</li>
 				</ul>

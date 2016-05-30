@@ -21,6 +21,11 @@
 							<i class="fa fa-info-circle"></i> MY PROFILE
 						<% end%>
 					</li>
+					<li>
+						<%= link_to orders_path, "tabindex" => "-1", target: "_parent"  do%>
+							<i class="fa fa-shopping-cart"></i> MY ORDERS
+						<% end%>
+					</li>
 					<% if current_user.admin? || current_user.seller? %>
 					<li class="divider"></li>
 					<li>

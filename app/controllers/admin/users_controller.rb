@@ -23,19 +23,39 @@ module Admin
 
 		def create
 			@user = User.new(safe_params)
-			@user.save
-			redirect_to admin_users_path
+			respond_to do |format|
+				if @user.save
+					format.html { redirect_to edit_admin_user_path(@user), notice: 'Created Successfully!' }
+					format.json { render :show, status: :created, location: @user }
+				else
+					format.html { render :new }
+					format.json { render json: @user.errors, status: :unprocessable_entity }
+				end
+			end
 		end
 
 		def update
-			@user = User.find(params[:id])
-			@user.update(safe_params)
-			redirect_to :back
+			respond_to do |format|
+				if @user.update(safe_params)
+					format.html { redirect_to :back, notice: 'Updated Successfully!' }
+					format.json { render :show, status: :updated, location: @user }
+				else
+					format.html { render :edit }
+					format.json { render json: @user.errors, status: :unprocessable_entity }
+				end
+			end
 		end
 
 		def destroy
-			@user.destroy
-			redirect_to :back
+			respond_to do |format|
+				if @user.destroy
+					format.html { redirect_to :back, notice: 'Deleted Successfully!' }
+					format.json { render :show, status: :deleted, location: @user }
+				else
+					format.html { render :back }
+					format.json { render json: @user.errors, status: :unprocessable_entity }
+				end
+			end
 		end
 
 		private

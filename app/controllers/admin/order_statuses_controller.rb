@@ -22,19 +22,40 @@ module Admin
     end
 
     def create
-      @order_status = OrderStatus.new(safe_params)
-      @order_status.save
-      redirect_to :back
+      @order_status = OrderStatus.new(alert_params)
+      respond_to do |format|
+        if @order_status.save
+          format.html { redirect_to :back, notice: 'Created Successfully!' }
+          format.json { render :show, status: :created, location: @order_status }
+        else
+          format.html { render :new }
+          format.json { render json: @order_status.errors, status: :unprocessable_entity }
+        end
+      end
     end
 
     def update
-      @order_status.update(safe_params)
-      redirect_to :back
+      respond_to do |format|
+        if @order_status.update(safe_params)
+          format.html { redirect_to :back, notice: 'Updated Successfully!' }
+          format.json { render :show, status: :updated, location: @order_status }
+        else
+          format.html { render :edit }
+          format.json { render json: @order_status.errors, status: :unprocessable_entity }
+        end
+      end
     end
 
     def destroy
-      @order_status.destroy
-      redirect_to :back
+      respond_to do |format|
+        if @order_status.destroy
+          format.html { redirect_to :back, notice: 'Deleted Successfully!' }
+          format.json { render :show, status: :deleted, location: @order_status }
+        else
+          format.html { redirect_to :back }
+          format.json { render json: @order_status.errors, status: :unprocessable_entity }
+        end
+      end
     end
 
     private

@@ -22,19 +22,14 @@ module Admin
 		end
 
 		def create
-			policy(:product).create?
 			@product = Product.new(safe_params)
 			respond_to do |format|
 				if @product.save
 					product = params[:product]
 					product[:categories].each do |e|
 						unless e.blank?
-							e = CategoriesProduct.new(:category_id => e, :product_id => @product.id)
-							if e.valid?
-								e.save
-							else
-								@errors += e.errors
-							end
+							# e = CategoriesProduct.new(:category_id => e, :product_id => @product.id)
+							@product.categories_products.created(:category_id => e.id)
 						end
 					end
 
@@ -48,12 +43,10 @@ module Admin
 		end
 
 		def update
-			@product = Product.find(params[:id])
 			@categories = @product.categories
 
 			if @product.update(safe_params)
 				product = params[:product]
-
 				product[:categories].each do |c|
 					unless c.blank?
 						c = CategoriesProduct.new(:category_id => c, :product_id => @product.id)
@@ -73,8 +66,11 @@ module Admin
 		end
 
 		def destroy
-			@product.destroy
-			redirect_to :back
+			if @product.destroy
+				redirect_to :back
+			else
+				redirect_to :back
+			end
 		end
 
 		private

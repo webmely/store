@@ -22,11 +22,10 @@ module Admin
 		end
 
 		def create
-			policy(:category).create?
 			@category = Category.new(safe_params)
 			respond_to do |format|
 				if @category.save
-					format.html { redirect_to :back, notice: 'Successfully!' }
+					format.html { redirect_to :back, notice: 'Created Successfully!' }
 					format.json { render :show, status: :created, location: @category }
 				else
 					format.html { render :new }
@@ -38,18 +37,25 @@ module Admin
 		def update
 			respond_to do |format|
 				if @category.update(safe_params)
-					format.html { redirect_to :back, notice: 'Successfully!' }
-					format.json { render :show, status: :created, location: @category }
+					format.html { redirect_to :back, notice: 'Updated Successfully!' }
+					format.json { render :show, status: :updated, location: @category }
 				else
-					format.html { render :new }
+					format.html { render :back }
 					format.json { render json: @category.errors, status: :unprocessable_entity }
 				end
 			end
 		end
 
 		def destroy
-			@category.destroy
-			redirect_to :back
+			respond_to do |format|
+				if @category.destroy
+					format.html { redirect_to :back, notice: 'Deleted Successfully!' }
+					format.json { render :show, status: :deleted, location: @category }
+				else
+					format.html { redirect_to :back }
+					format.json { render json: @category.errors, status: :unprocessable_entity }
+				end
+			end
 		end
 
 		private

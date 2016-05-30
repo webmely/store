@@ -18,9 +18,9 @@
 //= require owl.carousel
 //= require select2
 //= require select2_locale_pt-BR
-//
-//= require froala_editor.min.js
 //= require bootstrap3-editable/bootstrap-editable
+//
 //= require_tree ./admin
 //= require_tree ./plugins
+//= require froala_editor.min.js
 

@@ -15,90 +15,12 @@
  *= require owl.carousel
  *= require owl.theme
  *= require select2
+ *= require bootstrap3-editable/bootstrap-editable
+ *
+ *= require_tree ./admin
  *
  *= require froala_editor.min.css
  *= require froala_style.min.css
  *
- *= require bootstrap3-editable/bootstrap-editable
- *
- *= require_tree ./admin
  *= require_self
  */
-
-.list-products .product-thumb {
-	float: left;
-    margin-right: 10px;
-}
-.list-products p{
-	margin-bottom: 10px;
-}
-.product-item .product-info{
-	display: inherit;
-}
-.product-item .product-action{
-	visibility: hidden;
-}
-.product-item:hover .product-action{
-	visibility: visible;
-}
-.fancy-file-upload>i{left: 0}
-
-
-.select2-container--default .select2-selection--multiple {
-	background-color: transparent!important;
-	border: 2px solid #ddd!important;
-	border-radius: 4px;
-}
-
-section.dark .select2-container--default .select2-selection--multiple {
-	border-color:#666;
-}
-.select2-container--default .select2-selection--multiple .select2-selection__rendered {
-	color: #444;
-	line-height: 28px;
-}
-.select2-container--default .select2-selection--multiple .select2-selection__clear {
-	cursor: pointer;
-	float: right;
-	font-weight: bold;
-}
-.select2-container--default .select2-selection--multiple .select2-selection__placeholder {
-	color: #999;
-}
-.select2-container--default .select2-selection--multiple .select2-selection__arrow {
-	height: 26px;
-	position: absolute;
-	top: 1px;
-	right: 10px;
-	width: 20px;
-}
-.select2-container--default .select2-selection--multiple .select2-selection__arrow b {
-	border-color: #888 transparent transparent transparent;
-	border-style: solid;
-	border-width: 5px 4px 0 4px;
-	height: 0;
-	left: 50%;
-	margin-left: -4px;
-	margin-top: -2px;
-	position: absolute;
-	top: 50%;
-	width: 0;
-}
-.select2-container--default[dir="rtl"] .select2-selection--multiple .select2-selection__clear {
-	float: left;
-}
-.select2-container--default[dir="rtl"] .select2-selection--multiple .select2-selection__arrow {
-	left: 1px;
-	right: auto;
-}
-.select2-container--default.select2-container--disabled .select2-selection--multiple {
-	background-color: #eee;
-	cursor: default;
-}
-.select2-container--default.select2-container--disabled .select2-selection--multiple .select2-selection__clear {
-	display: none;
-}
-.select2-container--default.select2-container--open .select2-selection--multiple .select2-selection__arrow b {
-	border-color: transparent transparent #888 transparent;
-	border-width: 0 4px 5px 4px;
-}
