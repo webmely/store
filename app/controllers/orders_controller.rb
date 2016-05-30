@@ -1,10 +1,11 @@
 class OrdersController < ApplicationController
+  before_action :set_order, only: [:show]
+
   def index
-    @orders = Order.where(user_id: current_user.id).order("id DESC").page(params[:page]).per(10)
+    @orders = current_user.orders.order("id DESC").page(params[:page]).per(10)
   end
 
   def show
-    @order = Order.find(params[:id])
     @order_items = @order.order_items
   end
 
@@ -14,6 +15,12 @@ class OrdersController < ApplicationController
 
   def success
 
+  end
+
+  def cancel
+    order_id = params[:order_id].to_i
+    Order.update(order_id, :order_status_id => 4)
+    redirect_to orders_path
   end
 
   #function checkout
@@ -36,11 +43,15 @@ class OrdersController < ApplicationController
         @order_item.save
       end
       session["cart"] = []
-      render 'success'
+      redirect_to success_orders_path
     end
   end
 
   private
+
+  def set_order
+    @order = Order.find(params[:id])
+  end
 
   def order_params
     params.require(:order).permit(:user_id, :reciver_fullname, :reciver_email, :reciver_phone, :reciver_address, :subtotal, :discount, :shipping, :total, :note)

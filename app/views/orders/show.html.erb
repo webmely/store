@@ -2,7 +2,7 @@
 
 <section>
 	<div class="container">
-
+    <div id="order-content">
       <div class="row">
         <div class="col-md-6 col-sm-6 text-left">
           <h4><strong>Client</strong> Details</h4>
@@ -84,17 +84,44 @@
         </div>
 
         <div class="col-sm-6 text-right">
-
           <ul class="list-unstyled">
             <li><strong>Sub - Total Amount:</strong> <%= number_to_currency(@order.subtotal)%></li>
             <li><strong>Discount:</strong> <%= number_to_currency(@order.discount)%></li>
             <li><strong>Shipping:</strong> <%= number_to_currency(@order.shipping)%></li>
             <li><strong>Grand Total:</strong> <%= number_to_currency(@order.total)%></li>
           </ul>
-
-          <a class="btn btn-success" href="page-invoice-print.html" target="_blank"><i class="fa fa-print"></i> PRINT INVOICE</a>
         </div>
       </div>
-
+    </div>
+    <div class="row">
+      <div class="col-sm-12 text-right">
+          <a class="btn btn-warning" href="<%= cancel_orders_path%>?order_id=<%= @order.id%>" target="_parent"><i class="fa fa-times"></i> CANCEL</a>
+          <a class="btn btn-success" onclick="PrintDiv();"><i class="fa fa-print"></i> PRINT INVOICE</a>
+      </div>
+    </div>
 	</div>
 </section>
+
+<script type="text/javascript">
+  function PrintDiv() {
+    var contents = document.getElementById("order-content").innerHTML;
+    var frame1 = document.createElement('iframe');
+    frame1.name = "frame1";
+    frame1.style.position = "absolute";
+    frame1.style.top = "-1000000px";
+    document.body.appendChild(frame1);
+    var frameDoc = frame1.contentWindow ? frame1.contentWindow : frame1.contentDocument.document ? frame1.contentDocument.document : frame1.contentDocument;
+    frameDoc.document.open();
+    frameDoc.document.write('<html><head><title>Order #<%= @order.id%></title>');
+    frameDoc.document.write('</head><body>');
+    frameDoc.document.write(contents);
+    frameDoc.document.write('</body></html>');
+    frameDoc.document.close();
+    setTimeout(function () {
+      window.frames["frame1"].focus();
+      window.frames["frame1"].print();
+      document.body.removeChild(frame1);
+    }, 500);
+    return false;
+  }
+</script>

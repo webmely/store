@@ -14,7 +14,12 @@ Rails.application.routes.draw do
 		end
 	end
 
-	resources :orders
+	resources :orders do
+		collection do
+			get 'success'
+			get 'cancel'
+		end
+	end
 
 	scope module: 'admin' ,as: 'admin', :path => 'admin' do
 		root 'dashboard#index'

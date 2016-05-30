@@ -110,11 +110,11 @@
 
           <hr />
 
-          <%=f.hidden_field :user_id, value: current_user.id%>
           <%=f.hidden_field :subtotal, value: subtotal%>
           <%=f.hidden_field :discount, value: discount%>
           <%=f.hidden_field :shipping, value: shipping%>
           <%=f.hidden_field :total, value: subtotal+discount+shipping%>
+          <%=f.hidden_field :user_id, value: current_user.id%>
           <%= button_tag(type: 'submit', class: "btn btn-primary") do %>
             <i class="fa fa-mail-forward"></i> Place Order Now
           <% end %>
@@ -143,8 +143,3 @@
   </div>
 </section>
 <!-- /CART -->
-
-
-
-
-

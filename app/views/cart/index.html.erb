@@ -4,7 +4,9 @@
 <section>
 	<div class="container">
 
-	<% unless session["cart"].size == 0 %>
+	<%
+	if !session["cart"].nil?
+		unless session["cart"].size == 0 %>
 
 		<!-- CART -->
 		<div class="row">
@@ -144,6 +146,18 @@
 
 		</div>
 		<!-- /CART -->
+		<% else %>
+			<!-- EMPTY CART -->
+			<div class="panel panel-default">
+				<div class="panel-body">
+					<strong>Shopping cart is empty!</strong><br />
+					You have no items in your shopping cart.<br />
+					Click <a href="<%= products_path %>" target="_parent">here</a> to continue shopping. <br />
+					<span class="label label-warning">this is just an empty cart example</span>
+				</div>
+			</div>
+			<!-- /EMPTY CART -->
+		<% end %>
 	<% else %>
 		<!-- EMPTY CART -->
 		<div class="panel panel-default">
