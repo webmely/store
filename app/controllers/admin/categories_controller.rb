@@ -8,7 +8,7 @@ module Admin
 			@category = Category.new
 		end
 
-		def show 
+		def show
 			@category = Category.find(params[:id])
 		end
 
@@ -22,14 +22,29 @@ module Admin
 		end
 
 		def create
+			policy(:category).create?
 			@category = Category.new(safe_params)
-			@category.save
-			redirect_to :back
+			respond_to do |format|
+				if @category.save
+					format.html { redirect_to :back, notice: 'Successfully!' }
+					format.json { render :show, status: :created, location: @category }
+				else
+					format.html { render :new }
+					format.json { render json: @category.errors, status: :unprocessable_entity }
+				end
+			end
 		end
 
-		def update			
-			@category.update(safe_params)
-			redirect_to :back
+		def update
+			respond_to do |format|
+				if @category.update(safe_params)
+					format.html { redirect_to :back, notice: 'Successfully!' }
+					format.json { render :show, status: :created, location: @category }
+				else
+					format.html { render :new }
+					format.json { render json: @category.errors, status: :unprocessable_entity }
+				end
+			end
 		end
 
 		def destroy

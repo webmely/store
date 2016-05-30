@@ -1,6 +1,9 @@
 class OrdersController < ApplicationController
   before_action :set_order, only: [:show]
+<<<<<<< HEAD
 
+=======
+>>>>>>> 76f4dab57dc761140a05366062152429190fc56b
   def index
     @orders = current_user.orders.order("id DESC").page(params[:page]).per(10)
   end

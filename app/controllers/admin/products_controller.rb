@@ -22,27 +22,29 @@ module Admin
 		end
 
 		def create
+			policy(:product).create?
 			@product = Product.new(safe_params)
-
-			if @product.save
-
-				product = params[:product]
-
-				product[:categories].each do |c|
-					unless c.blank?
-						c = CategoriesProduct.new(:category_id => c, :product_id => @product.id)
-						if c.valid?
-							c.save
-						else
-							@errors += c.errors
+			respond_to do |format|
+				if @product.save
+					product = params[:product]
+					product[:categories].each do |e|
+						unless e.blank?
+							e = CategoriesProduct.new(:category_id => e, :product_id => @product.id)
+							if e.valid?
+								e.save
+							else
+								@errors += e.errors
+							end
 						end
 					end
-				end
 
-			else
-				render "new"
+					format.html { redirect_to edit_admin_product_path(@product), notice: 'Successfully!' }
+					format.json { render :show, status: :created, location: @product }
+				else
+					format.html { render :new }
+					format.json { render json: @product.errors, status: :unprocessable_entity }
+				end
 			end
-			redirect_to edit_admin_product_path(@product)
 		end
 
 		def update
