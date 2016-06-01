@@ -24,22 +24,22 @@
 
 == Links
 
-* [Home Page](http://localhost:3000): <tt>http://localhost:3000</tt>
+* Home Page: <tt>http://localhost:3000</tt>
 
-* [Login Page](http://localhost:3000/users/sign_in): <tt>http://localhost:3000/users/sign_in</tt>
+* Login Page: <tt>http://localhost:3000/users/sign_in</tt>
 
-* [Register Page](http://localhost:3000/users/sign_up): <tt>http://localhost:3000/users/sign_up</tt>
+* Register Page: <tt>http://localhost:3000/users/sign_up</tt>
 
-* [List Products Page](http://localhost:3000/products): <tt>http://localhost:3000/products</tt>
+* List Products Page: <tt>http://localhost:3000/products</tt>
 
-* [Product Details Page](http://localhost:3000/products/1): <tt>http://localhost:3000/products/1</tt>
+* Product Details Page: <tt>http://localhost:3000/products/1</tt>
 
-* [Cart Page](http://localhost:3000/cart/index): <tt>http://localhost:3000/cart/index</tt>
+* Cart Page: <tt>http://localhost:3000/cart/index</tt>
 
-* [CheckOut Page](http://localhost:3000/orders/new): <tt>http://localhost:3000/orders/new</tt> (Login Required)
+* CheckOut Page: <tt>http://localhost:3000/orders/new</tt> (Login Required)
 
-* [Your Orders Page](http://localhost:3000/orders): <tt>http://localhost:3000/orders</tt> (Login Required)
+* Your Orders Page: <tt>http://localhost:3000/orders</tt> (Login Required)
 
-* [Manager Page](http://localhost:3000/admin): <tt>http://localhost:3000/admin</tt> (Login Required)
+* Manager Page: <tt>http://localhost:3000/admin</tt> (Login Required)
 
 Please contact me if you have any questions.
