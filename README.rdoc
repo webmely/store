@@ -1,28 +1,45 @@
-== README
+== Installation
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+* Open Terminal
 
-Things you may want to cover:
+* Open Directory path  <tt>cd project_path</tt>
 
-* Ruby version
+* <tt>bundle install</tt> - Install Bundle
 
-* System dependencies
+* <tt>rake db:create</tt> - Create database
 
-* Configuration
+* <tt>rake db:migrate</tt> - Create schema
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* <tt>rake db:seed</tt> - Create demo data
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+== Run
+
+* <tt>rails s</tt> - Start server
+
+* Open your browser and enter <tt>localhost:3000</tt>
+
+* Account: <tt>admin@gmail.com/123456789</tt>, <tt>saler@gmail.com/123456789</tt>, <tt>user@gmail.com/123456789</tt>
+
+
+== Links
+
+* [Home Page](http://localhost:3000): <tt>http://localhost:3000</tt>
+
+* [Login Page](http://localhost:3000/users/sign_in): <tt>http://localhost:3000/users/sign_in</tt>
+
+* [Register Page](http://localhost:3000/users/sign_up): <tt>http://localhost:3000/users/sign_up</tt>
+
+* [List Products Page](http://localhost:3000/products): <tt>http://localhost:3000/products</tt>
+
+* [Product Details Page](http://localhost:3000/products/1): <tt>http://localhost:3000/products/1</tt>
+
+* [Cart Page](http://localhost:3000/cart/index): <tt>http://localhost:3000/cart/index</tt>
+
+* [CheckOut Page](http://localhost:3000/orders/new): <tt>http://localhost:3000/orders/new</tt> (Login Required)
+
+* [Your Orders Page](http://localhost:3000/orders): <tt>http://localhost:3000/orders</tt> (Login Required)
+
+* [Manager Page](http://localhost:3000/admin): <tt>http://localhost:3000/admin</tt> (Login Required)
+
+Please contact me if you have any questions.
